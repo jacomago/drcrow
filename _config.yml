@@ -2,8 +2,8 @@
 title: Dr Crow and the Forbidden Zone
 email: drcrow@cheatashki.co.uk
 description: A band website for Dr Crow and the Forbidden Zone
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://jacomago.github.io/drcrow/" # the base hostname & protocol for your site
+baseurl: "/drcrow/" # the subpath of your site, e.g. /blog/
+url: "http://jacomago.github.io" # the base hostname & protocol for your site
 twitter_username: drcrowandtheforbiddenzone
 github_username:  jacomago
 
