@@ -1,0 +1,74 @@
+backend:
+  name: git-gateway
+  branch: main # or master, depending on your repo
+
+media_folder: "assets/images" # Folder where media files will be stored
+public_folder: "/assets/images" # The src attribute for uploaded media will begin with this path
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "about.md"
+        label: "About Page"
+        name: "about"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "default"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - file: "contact.md"
+        label: "Contact Page"
+        name: "contact"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "default"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - file: "exposition.md"
+        label: "Exposition Page"
+        name: "exposition"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "default"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - file: "gallery.md"
+        label: "Gallery Page"
+        name: "gallery"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden",- {label: "Layout", name: "layout", widget: "hidden", default: "default"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - file: "index.md"
+        label: "Home Page"
+        name: "index"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "default"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - file: "media.md"
+        label: "Media Page"
+        name: "media"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "default"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - file: "tour.md"
+        label: "Tour Page"
+        name: "tour"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "default"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - file: "videos.md"
+        label: "Videos Page"
+        name: "videos"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "default"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - file: "acid.md"
+        label: "Acid Page"
+        name: "acid"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "default"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
