@@ -34,7 +34,7 @@ collections:
         label: "Gallery Page"
         name: "gallery"
         fields:
-          - {label: "Layout", name: "layout", widget: "hidden",- {label: "Layout", name: "layout", widget: "hidden", default: "default"}
+          - {label: "Layout", name: "layout", widget: "hidden", default: "default"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
       - file: "index.md"
