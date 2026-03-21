@@ -1,8 +1,76 @@
-/* Basic styles */
+/* General styles */
 body {
-  font-family: sans-serif;
-  line-height: 1.5;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: #1a1a1a;
+  color: #f2f2f2;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+a {
+  color: #f2f2f2;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Layout */
+.container {
+  max-width: 960px;
   margin: 0 auto;
-  max-width: 800px;
-  padding: 2em;
+  padding: 0 1em;
+}
+
+/* Header */
+header {
+  background: #111;
+  padding: 1em 0;
+  border-bottom: 1px solid #333;
+}
+
+header nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+header nav ul li {
+  display: inline-block;
+  margin: 0 1em;
+}
+
+header nav ul li a {
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+/* Main content */
+main {
+  padding: 2em 0;
+}
+
+/* Footer */
+footer {
+  background: #111;
+  padding: 1em 0;
+  text-align: center;
+  border-top: 1px solid #333;
+  margin-top: 2em;
+}
+
+footer p {
+  margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
