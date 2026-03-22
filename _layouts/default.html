@@ -30,10 +30,9 @@
   <footer>
     <div class="container">
       <div class="footer-socials">
-        <a href="https://www.facebook.com/people/Dr-Crow-The-Forbidden-Zone/100063671582176/" target="_blank">FACEBOOK</a> |
-        <a href="https://www.youtube.com/@drcrowandtheforbiddenzone9192" target="_blank">YOUTUBE</a> |
-        <a href="https://soundcloud.com/dr-crow-952411788" target="_blank">SOUNDCLOUD</a> |
-        <a href="https://drcrow.bandcamp.com" target="_blank">BANDCAMP</a>
+        {% for social in site.data.socials %}
+          <a href="{{ social.url }}" target="_blank">{{ social.name }}</a>{% unless forloop.last %} | {% endunless %}
+        {% endfor %}
       </div>
       <p style="margin-top: 20px; font-family: 'Courier Prime', monospace; font-size: 0.8rem;">&copy; 2018 - {{ "now" | date: "%Y" }} DR CROW AND THE FORBIDDEN ZONE. ALL RIGHTS RESERVED.</p>
       <p style="font-style: italic; color: var(--accent-purple);">Stray from the path.</p>
