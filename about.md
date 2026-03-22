@@ -3,7 +3,7 @@ layout: about
 title: ABOUT THE FORBIDDEN ZONE
 heading: ABOUT THE FORBIDDEN ZONE
 lead: Step into the twilight at the end of the day.
-image: assets/images/highlights/live-rhythm-section.jpg
+image: assets/images/highlights/live-band-neon.jpg
 acid_youtube_id: "7uMhXIMXmAk"
 permalink: /about.html
 ---
