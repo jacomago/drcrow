@@ -9,7 +9,7 @@ permalink: /
   tagline="Step into the unknown" 
   cta_link="/media.html" 
   cta_text="LISTEN NOW" 
-  image="assets/images/home-hero.jpg" %}
+  image="assets/images/heroes/home-hero.jpg" %}
 
 <section class="home-intro text-center">
   <div class="container">

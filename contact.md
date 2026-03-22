@@ -2,7 +2,7 @@
 layout: contact
 title: CONTACT
 lead: Step into the Forbidden Zone through these portals.
-image: assets/images/highlights/live-singer-red.jpg
+image: assets/images/highlights/live-singer-stage.jpg
 permalink: /contact.html
 ---
 
