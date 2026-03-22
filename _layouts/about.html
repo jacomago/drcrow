@@ -24,7 +24,7 @@ layout: default
 <section class="about-exposition">
   <div class="container">
     <h2>EXPOSITION</h2>
-    {% capture exposition_content %}{% include exposition.md %}{% endcapture %}
-    {{ exposition_content | markdownify }}
   </div>
+  {% capture exposition_content %}{% include exposition.md %}{% endcapture %}
+  {{ exposition_content | markdownify }}
 </section>
