@@ -4,7 +4,7 @@ title: MUSIC
 permalink: /media.html
 ---
 
-# A message from outer space . . .
+# A message from outer space . .
 
 ## The new album
 
@@ -12,7 +12,7 @@ Here on this page you will find a pan-dimensional portal to the album.
 
 The album is presented in it's entirety. A story in 10 parts (just like life really).
 
-<iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=2090757112/size=large/bgcol=333333/linkcol=e99708/tracklist=false/artwork=small/transparent=true/" seamless><a href="http://drcrow.bandcamp.com/album/a-message-from-outer-space">A Message From Outer Space by Dr Crow And The Forbidden Zone</a></iframe>
+<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=66352487/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://drcrow.bandcamp.com/album/strohayr">Strohayr by Dr Crow and The Forbidden Zone</a></iframe>
 
 ## Crow Hall
 
@@ -28,9 +28,10 @@ Marvel at Spudy's valiant attempt to maintain his sanity, as he tries to extract
 
 So make yourself a big mug of your favourite beverage, and just press PLAY...
 
-<iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1833959843/size=large/bgcol=333333/linkcol=e99708/tracklist=false/artwork=small/transparent=true/" seamless><a href="http://drcrow.bandcamp.com/album/crow-hall">Crow Hall by Dr Crow And The Forbidden Zone</a></iframe>
+<iframe style="border: 0; width: 350px; height: 442px;" src="https://bandcamp.com/EmbeddedPlayer/track=3830604073/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://drcrow.bandcamp.com/track/radio-interview">Radio Interview by Dr Crow and The Forbidden Zone</a></iframe>
 
 ### credits
+
 released January 30, 2018
 
 Written, and performed by Dr Crow And The Forbidden Zone.
@@ -40,4 +41,9 @@ Special guest "Rock Radio" DJ Spudy LRO.
 Recorded, mixed and final production at Crow Hall by Dr Crow And The Forbidden Zone.
 
 ### license
+
 all rights reserved
+
+## A Fistful of Broken Bones
+
+<iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=1201722343/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://drcrow.bandcamp.com/album/fistful-of-broken-bones">Fistful Of Broken Bones by Dr Crow and The Forbidden Zone</a></iframe>
