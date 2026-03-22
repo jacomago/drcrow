@@ -4,28 +4,33 @@ title: CONTACT
 permalink: /contact.html
 ---
 
-# CONTACT
+<div class="contact-container">
+  <h1>CONTACT</h1>
+  
+  <p class="lead text-center">Step into the Forbidden Zone through these portals.</p>
 
-## Get in touch, we'd love to hear from you.
+  <div class="portals-grid">
+    <a href="https://www.facebook.com/people/Dr-Crow-The-Forbidden-Zone/100063671582176/" class="portal-btn facebook" target="_blank">
+      <span class="portal-text">FACEBOOK</span>
+    </a>
+    
+    <a href="https://www.youtube.com/@drcrowandtheforbiddenzone9192" class="portal-btn youtube" target="_blank">
+      <span class="portal-text">YOUTUBE</span>
+    </a>
+    
+    <a href="https://soundcloud.com/dr-crow-952411788" class="portal-btn soundcloud" target="_blank">
+      <span class="portal-text">SOUNDCLOUD</span>
+    </a>
+    
+    <a href="https://drcrow.bandcamp.com" class="portal-btn bandcamp" target="_blank">
+      <span class="portal-text">BANDCAMP</span>
+    </a>
+  </div>
 
-**Dr Crow And The Forbidden Zone**
-
-[drcrowzone@gmail.com](mailto:drcrowzone@gmail.com)
-
-### BOOKINGS
-
-**Dr Crow**
-
-Tel: 07710 123132
-
-### Send us a message
-
-<form>
-  <label for="name">Name:</label><br>
-  <input type="text" id="name" name="name"><br>
-  <label for="email">Email:</label><br>
-  <input type="email" id="email" name="email"><br>
-  <label for="message">Message:</label><br>
-  <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
-  <input type="submit" value="Submit">
-</form>
+  <div class="direct-contact">
+    <h3>BOOKINGS & INQUIRIES</h3>
+    <p><strong>Dr Crow</strong></p>
+    <p>Email: <a href="mailto:drcrowzone@gmail.com">drcrowzone@gmail.com</a></p>
+    <p>Tel: 07710 123132</p>
+  </div>
+</div>

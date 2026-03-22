@@ -4,47 +4,17 @@ title: GALLERY
 permalink: /gallery.html
 ---
 
-# Gallery
+<div class="gallery-container">
+  <h1>GALLERY</h1>
+  <p class="lead text-center">Visual manifestations of the Forbidden Zone.</p>
 
-![Image](assets/images/05e3dc_9a652459a41748d1bba89f5918d38055.jpg)
-![Image](assets/images/97e2c6_12c23eecd3224f5cbff1054f615d5e91~mv2_d_3484_1850_s_2.jpg)
-![Image](assets/images/97e2c6_9112ce38e74a4c6eaad19684646853d9~mv2_d_3484_1850_s_2.jpg)
-![Image](assets/images/97e2c6_f23184c25bed4940909e6df4a536685d~mv2_d_3455_2459_s_4_2.jpg)
-![Image](assets/images/97e2c6_c3e8a49ac52449c99b9f3fee90c085a1~mv2_d_4128_3096_s_4_2.jpg)
-![Image](assets/images/97e2c6_c2bb33e385934ddab579b71ff1d5995a~mv2_d_4128_3096_s_4_2.jpg)
-![Image](assets/images/97e2c6_662cea22b08647c2b63cb21ed8e6a404~mv2_d_4128_3096_s_4_2.jpg)
-![Image](assets/images/97e2c6_f2eb6d1b5963417e81d4c7fc7d6acc6b~mv2_d_4128_3096_s_4_2.jpg)
-![Image](assets/images/97e2c6_618d801c6d2e45f09062f253b7410e28~mv2_d_4128_3096_s_4_2.jpg)
-![Image](assets/images/97e2c6_2e27bfdf7bcc4261bee14ffc3d3e1888~mv2_d_4208_3348_s_4_2.jpg)
-![Image](assets/images/97e2c6_dfcc444ab0f9446ba7512da0f15eeabe~mv2_d_3455_2459_s_4_2.jpg)
-![Image](assets/images/11062b_e7a88b793118451b934bfdbd6dff7acaf000.jpg)
-![Image](assets/images/11062b_ba2c921477734f8b84ef0c71f64a2562f000.jpg)
-![Image](assets/images/b2bdac_ef68937914c74c8b81023fb6672800fa~mv2_d_2162_3264_s_2.jpg)
-![Image](assets/images/b2bdac_b183793cb9d247b08bf5323a6ebe5a08~mv2_d_2355_2872_s_2.jpg)
-![Image](assets/images/b2bdac_c7614b11d40245af955d3050d20d4fa5~mv2_d_3478_2934_s_4_2.jpg)
-![Image](assets/images/b2bdac_822c9d79e6c546988915bc09975a7949~mv2_d_2258_3832_s_2.jpg)
-![Image](assets/images/b2bdac_b712194521f6497ab91132b38150aace~mv2_d_3603_3832_s_4_2.jpg)
-![Image](assets/images/b2bdac_7542b4b144b24aceb133c71ad52a79b5~mv2_d_3248_4042_s_4_2.jpg)
-![Image](assets/images/b2bdac_77ff12bd7315431eb8bf2077c376b255~mv2_d_3248_4273_s_4_2.jpg)
-![Image](assets/images/b2bdac_a39bf6703e754c2bb5dddb2cca9eb862~mv2_d_4084_3264_s_4_2.jpg)
-![Image](assets/images/b2bdac_8320bc80459e48a88b38cd5b227e4b0f~mv2_d_3775_3248_s_4_2.jpg)
-![Image](assets/images/b2bdac_5fcb74eb12c14038a7041f175e6aec67~mv2_d_4106_3437_s_4_2.jpg)
-![Image](assets/images/b2bdac_4945de44e5cd462ba381f6aecd009d89~mv2_d_4789_3617_s_4_2.jpg)
-![Image](assets/images/b2bdac_10748ce8abd742e889cdef9cda7b5478~mv2_d_3645_3037_s_4_2.jpg)
-![Image](assets/images/b2bdac_2d7a125f12794f55badee7ef5b89a5fc~mv2_d_4928_3264_s_4_2.jpg)
-![Image](assets/images/b2bdac_042eb9a92f8344519decb647bebfee97~mv2_d_2704_2503_s_4_2.jpg)
-![Image](assets/images/b2bdac_54a22322f6b64aac9c2b348b756736bc~mv2_d_5760_3840_s_4_2.jpg)
-![Image](assets/images/9de0b1_feb2c0c0ebcf4e2b9647d1f10e5eead8~mv2_d_4032_3024_s_4_2.jpg)
-![Image](assets/images/9de0b1_ae7c805a857e4d678f3aff3dd9f27ad1~mv2_d_4032_3024_s_4_2.jpg)
-![Image](assets/images/9de0b1_96ecd212e11042fabb73c21a210c78e1~mv2_d_4032_3024_s_4_2.jpg)
-![Image](assets/images/9de0b1_93a19c0fa61d4dccb1ee3fe8f93edaee~mv2_d_4032_3024_s_4_2.jpg)
-![Image](assets/images/9de0b1_698437f564ea4da58477c8904febf15f~mv2_d_4032_3024_s_4_2.jpg)
-![Image](assets/images/9de0b1_a2ebb79fbcb54865bbcf5e3e50059476~mv2_d_3024_4032_s_4_2.jpg)
-![Image](assets/images/9de0b1_ff57a57b474d41a7b38655033263913f~mv2_d_3024_4032_s_4_2.jpg)
-![Image](assets/images/9de0b1_f9d3729feca342dfaad183eda57fb0fb~mv2_d_3024_4032_s_4_2.jpg)
-![Image](assets/images/9de0b1_a3e8c20b5b004816b9b9b6b3490ce1d6~mv2_d_2016_1512_s_2.jpg)
-![Image](assets/images/9de0b1_e62a7e8d8a2845458b87a5041cb762e2~mv2_d_2016_1512_s_2.jpg)
-![Image](assets/images/9de0b1_333d0a72a71940018fdde4ed2c362f80~mv2_d_2016_1512_s_2.jpg)
-![Image](assets/images/9de0b1_1e9f91c131174c6dbea2a32915dba08e~mv2_d_2016_1512_s_2.jpeg)
-![Image](assets/images/9de0b1_4e7f37a0fab44b11898580313862d1c2~mv2_d_2016_1512_s_2.jpg)
-![Image](assets/images/9de0b1_65d7e883f58e4601a5c812e69fe4ff1c~mv2.jpg)
+  <div class="gallery-grid">
+    {% assign images = "band-bw-1.jpg, 97e2c6_12c23eecd3224f5cbff1054f615d5e91~mv2_d_3484_1850_s_2.jpg, 97e2c6_9112ce38e74a4c6eaad19684646853d9~mv2_d_3484_1850_s_2.jpg, 97e2c6_f23184c25bed4940909e6df4a536685d~mv2_d_3455_2459_s_4_2.jpg, 97e2c6_c3e8a49ac52449c99b9f3fee90c085a1~mv2_d_4128_3096_s_4_2.jpg, 97e2c6_c2bb33e385934ddab579b71ff1d5995a~mv2_d_4128_3096_s_4_2.jpg, 97e2c6_662cea22b08647c2b63cb21ed8e6a404~mv2_d_4128_3096_s_4_2.jpg, 97e2c6_f2eb6d1b5963417e81d4c7fc7d6acc6b~mv2_d_4128_3096_s_4_2.jpg, 97e2c6_618d801c6d2e45f09062f253b7410e28~mv2_d_4128_3096_s_4_2.jpg, 97e2c6_2e27bfdf7bcc4261bee14ffc3d3e1888~mv2_d_4208_3348_s_4_2.jpg, 97e2c6_dfcc444ab0f9446ba7512da0f15eeabe~mv2_d_3455_2459_s_4_2.jpg, 11062b_e7a88b793118451b934bfdbd6dff7acaf000.jpg, 11062b_ba2c921477734f8b84ef0c71f64a2562f000.jpg, b2bdac_ef68937914c74c8b81023fb6672800fa~mv2_d_2162_3264_s_2.jpg, b2bdac_b183793cb9d247b08bf5323a6ebe5a08~mv2_d_2355_2872_s_2.jpg, b2bdac_c7614b11d40245af955d3050d20d4fa5~mv2_d_3478_2934_s_4_2.jpg, b2bdac_822c9d79e6c546988915bc09975a7949~mv2_d_2258_3832_s_2.jpg, b2bdac_b712194521f6497ab91132b38150aace~mv2_d_3603_3832_s_4_2.jpg, b2bdac_7542b4b144b24aceb133c71ad52a79b5~mv2_d_3248_4042_s_4_2.jpg, b2bdac_77ff12bd7315431eb8bf2077c376b255~mv2_d_3248_4273_s_4_2.jpg, b2bdac_a39bf6703e754c2bb5dddb2cca9eb862~mv2_d_4084_3264_s_4_2.jpg, b2bdac_8320bc80459e48a88b38cd5b227e4b0f~mv2_d_3775_3248_s_4_2.jpg, b2bdac_5fcb74eb12c14038a7041f175e6aec67~mv2_d_4106_3437_s_4_2.jpg, b2bdac_4945de44e5cd462ba381f6aecd009d89~mv2_d_4789_3617_s_4_2.jpg, b2bdac_10748ce8abd742e889cdef9cda7b5478~mv2_d_3645_3037_s_4_2.jpg, b2bdac_2d7a125f12794f55badee7ef5b89a5fc~mv2_d_4928_3264_s_4_2.jpg, b2bdac_042eb9a92f8344519decb647bebfee97~mv2_d_2704_2503_s_4_2.jpg, b2bdac_54a22322f6b64aac9c2b348b756736bc~mv2_d_5760_3840_s_4_2.jpg, 9de0b1_feb2c0c0ebcf4e2b9647d1f10e5eead8~mv2_d_4032_3024_s_4_2.jpg, 9de0b1_ae7c805a857e4d678f3aff3dd9f27ad1~mv2_d_4032_3024_s_4_2.jpg, 9de0b1_96ecd212e11042fabb73c21a210c78e1~mv2_d_4032_3024_s_4_2.jpg, 9de0b1_93a19c0fa61d4dccb1ee3fe8f93edaee~mv2_d_4032_3024_s_4_2.jpg, 9de0b1_698437f564ea4da58477c8904febf15f~mv2_d_4032_3024_s_4_2.jpg, 9de0b1_a2ebb79fbcb54865bbcf5e3e50059476~mv2_d_3024_4032_s_4_2.jpg, 9de0b1_ff57a57b474d41a7b38655033263913f~mv2_d_3024_4032_s_4_2.jpg, 9de0b1_f9d3729feca342dfaad183eda57fb0fb~mv2_d_3024_4032_s_4_2.jpg, 9de0b1_a3e8c20b5b004816b9b9b6b3490ce1d6~mv2_d_2016_1512_s_2.jpg, 9de0b1_e62a7e8d8a2845458b87a5041cb762e2~mv2_d_2016_1512_s_2.jpg, 9de0b1_333d0a72a71940018fdde4ed2c362f80~mv2_d_2016_1512_s_2.jpg, 9de0b1_1e9f91c131174c6dbea2a32915dba08e~mv2_d_2016_1512_s_2.jpeg, 9de0b1_4e7f37a0fab44b11898580313862d1c2~mv2_d_2016_1512_s_2.jpg, 9de0b1_65d7e883f58e4601a5c812e69fe4ff1c~mv2.jpg" | split: ", " %}
+
+    {% for img in images %}
+    <div class="gallery-item">
+      <img src="{{ 'assets/images/' | append: img | relative_url }}" alt="Forbidden Zone Manifestation">
+    </div>
+    {% endfor %}
+  </div>
+</div>

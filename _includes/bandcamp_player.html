@@ -1,0 +1,13 @@
+{% if include.album_id %}
+<div class="bandcamp-embed">
+  <iframe style="border: 0; width: 100%; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album={{ include.album_id }}/size=large/bgcol=121212/linkcol=4b0082/tracklist=false/transparent=true/" seamless>
+    <a href="{{ include.url }}">{{ include.title }}</a>
+  </iframe>
+</div>
+{% elsif include.track_id %}
+<div class="bandcamp-embed">
+  <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/track={{ include.track_id }}/size=large/bgcol=121212/linkcol=4b0082/tracklist=false/artwork=small/transparent=true/" seamless>
+    <a href="{{ include.url }}">{{ include.title }}</a>
+  </iframe>
+</div>
+{% endif %}

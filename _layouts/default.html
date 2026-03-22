@@ -6,7 +6,7 @@
   <title>{{ page.title }} | {{ site.title }}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Roboto:wght@400;700&family=Courier+Prime&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
@@ -29,9 +29,17 @@
   
   <footer>
     <div class="container">
-      <p>&copy; 2018 by Dr Crow And The Forbidden Zone</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/people/Dr-Crow-The-Forbidden-Zone/100063671582176/" target="_blank">FACEBOOK</a> |
+        <a href="https://www.youtube.com/@drcrowandtheforbiddenzone9192" target="_blank">YOUTUBE</a> |
+        <a href="https://soundcloud.com/dr-crow-952411788" target="_blank">SOUNDCLOUD</a> |
+        <a href="https://drcrow.bandcamp.com" target="_blank">BANDCAMP</a>
+      </div>
+      <p style="margin-top: 20px; font-family: 'Courier Prime', monospace; font-size: 0.8rem;">&copy; 2018 - {{ "now" | date: "%Y" }} DR CROW AND THE FORBIDDEN ZONE. ALL RIGHTS RESERVED.</p>
+      <p style="font-style: italic; color: var(--accent-purple);">Stray from the path.</p>
     </div>
   </footer>
+
   <script>
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
