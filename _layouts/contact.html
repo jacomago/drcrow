@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<section class="contact-header">
+  <div class="container">
+    <h1>{{ page.title }}</h1>
+    {% if page.lead %}<p class="lead">{{ page.lead }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="contact-portals">
+  <div class="container">
+    <div class="portals-grid">
+      {% for social in site.data.socials %}
+        {% include portal_btn.html url=social.url name=social.name class=social.class %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="contact-direct bg-surface-low">
+  <div class="container" markdown="1">
+    {{ content }}
+  </div>
+</section>

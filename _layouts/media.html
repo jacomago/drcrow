@@ -1,0 +1,44 @@
+---
+layout: default
+---
+<section class="music-header">
+  <div class="container">
+    <h1>{{ page.title }}</h1>
+    {% if page.lead %}<p class="lead">{{ page.lead }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="music-feature">
+  <div class="container" markdown="1">
+    ## The new album: STROHAYR
+    The album is presented in its entirety. A story in 10 parts (just like life really).
+    {% include bandcamp_player.html album_id="66352487" title="Strohayr by Dr Crow and The Forbidden Zone" url="https://drcrow.bandcamp.com/album/strohayr" %}
+  </div>
+</section>
+
+<section class="music-insight bg-surface-low">
+  <div class="container" markdown="1">
+    ## Crow Hall Insight
+    Get a special insight into the band's home environment......Crow Hall.
+
+    ![Crow Hall]({{ 'assets/images/crow-hall.jpg' | relative_url }})
+
+    {% include bandcamp_player.html track_id="3830604073" title="Radio Interview by Dr Crow and The Forbidden Zone" url="https://drcrow.bandcamp.com/track/radio-interview" %}
+  </div>
+</section>
+
+<section class="music-bones">
+  <div class="container" markdown="1">
+    ## A Fistful of Broken Bones
+    {% include bandcamp_player.html album_id="1201722343" title="Fistful Of Broken Bones by Dr Crow and The Forbidden Zone" url="https://drcrow.bandcamp.com/album/fistful-of-broken-bones" %}
+  </div>
+</section>
+
+<section class="music-archive bg-surface-low">
+  <div class="container" markdown="1">
+    ## THE SOUNDCLOUD ARCHIVE
+    Further frequencies from the zone.
+
+    {% include soundcloud_player.html track_id="112000000" %}
+  </div>
+</section>

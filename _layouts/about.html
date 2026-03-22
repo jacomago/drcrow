@@ -1,0 +1,30 @@
+---
+layout: default
+---
+<section class="about-hero">
+  <div class="container">
+    <h1>{{ page.heading | default: page.title }}</h1>
+    {% if page.lead %}<p class="lead">{{ page.lead }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="about-intro">
+  <div class="container" markdown="1">
+    {{ content }}
+  </div>
+</section>
+
+<section class="about-acid bg-surface-low">
+  <div class="container" markdown="1">
+    ## ACID
+    {% include video_embed.html wix_video_url=page.acid_video_url %}
+  </div>
+</section>
+
+<section class="about-exposition">
+  <div class="container" markdown="1">
+    ## EXPOSITION
+    {% capture exposition_content %}{% include exposition.md %}{% endcapture %}
+    {{ exposition_content | markdownify }}
+  </div>
+</section>

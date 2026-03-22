@@ -1,21 +1,6 @@
 ---
-layout: default
-title: VIDEO
+layout: videos
+title: VIDEOS
+lead: Further manifestations of the zone.
 permalink: /videos.html
 ---
-
-# VIDEOS
-
-{% for video in site.data.videos %}
-<section class="video-feature" markdown="1">
-
-## {{ video.title }}
-
-{{ video.description }}
-
-{% if video.facebook_url or video.wix_video_url %}
-{% include video_embed.html facebook_url=video.facebook_url wix_video_url=video.wix_video_url %}
-{% endif %}
-
-</section>
-{% endfor %}

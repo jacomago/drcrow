@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<section class="gallery-header">
+  <div class="container">
+    <h1>{{ page.title }}</h1>
+    {% if page.lead %}<p class="lead">{{ page.lead }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="gallery-content bg-surface-low">
+  <div class="container" markdown="1">
+    {{ content }}
+    
+    <div class="gallery-grid">
+      {% for img in site.data.gallery %}
+      <div class="gallery-item">
+        <img src="{{ 'assets/images/' | append: img | relative_url }}" alt="Forbidden Zone Manifestation">
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
