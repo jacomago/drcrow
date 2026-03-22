@@ -1,11 +1,11 @@
 <div class="hero-section">
   <div class="hero-overlay">
+    <p class="hero-tagline">{{ include.tagline | default: ". . . . stray from the path" }}</p>
     <h1>{{ include.title | default: page.title }}</h1>
-    {% if include.tagline %}
-    <p class="hero-tagline">{{ include.tagline }}</p>
-    {% endif %}
     {% if include.cta_link %}
-    <a href="{{ include.cta_link | relative_url }}" class="portal-btn hero-cta">{{ include.cta_text | default: "LISTEN NOW" }}</a>
+    <a href="{{ include.cta_link | relative_url }}" class="hero-cta">
+      {{ include.cta_text | default: "LISTEN NOW" }}
+    </a>
     {% endif %}
   </div>
   <div class="hero-image">
