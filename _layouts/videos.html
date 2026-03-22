@@ -17,8 +17,8 @@ layout: default
       ## {{ video.title }}
       {{ video.description }}
 
-      {% if video.facebook_url or video.wix_video_url %}
-      {% include video_embed.html facebook_url=video.facebook_url wix_video_url=video.wix_video_url %}
+      {% if video.youtube_id or video.facebook_url or video.wix_video_url %}
+      {% include video_embed.html youtube_id=video.youtube_id facebook_url=video.facebook_url wix_video_url=video.wix_video_url %}
       {% endif %}
     </section>
     {% endfor %}

@@ -3,7 +3,7 @@ layout: about
 title: ABOUT THE FORBIDDEN ZONE
 heading: ABOUT THE FORBIDDEN ZONE
 lead: Step into the twilight at the end of the day.
-acid_video_url: "https://video.wixstatic.com/video/11062b_e7a88b793118451b934bfdbd6dff7aca/1080p/mp4/file.mp4"
+acid_youtube_id: "7uMhXIMXmAk"
 permalink: /about.html
 ---
 

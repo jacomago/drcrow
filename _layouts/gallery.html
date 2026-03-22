@@ -15,7 +15,7 @@ layout: default
     <div class="gallery-grid">
       {% for img in site.data.gallery %}
       <div class="gallery-item">
-        <img src="{{ 'assets/images/' | append: img | relative_url }}" alt="Forbidden Zone Manifestation">
+        <img src="{{ 'assets/images/' | append: img | relative_url }}" alt="Forbidden Zone Manifestation" loading="lazy" decoding="async">
       </div>
       {% endfor %}
     </div>
