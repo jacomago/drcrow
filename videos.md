@@ -4,12 +4,10 @@ title: VIDEO
 permalink: /videos.html
 ---
 
-<div class="video-page-container">
-
 # VIDEOS
 
 {% for video in site.data.videos %}
-<section class="video-feature">
+<section class="video-feature" markdown="1">
 
 ## {{ video.title }}
 
@@ -21,5 +19,3 @@ permalink: /videos.html
 
 </section>
 {% endfor %}
-
-</div>

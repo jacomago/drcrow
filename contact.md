@@ -4,8 +4,6 @@ title: CONTACT
 permalink: /contact.html
 ---
 
-<div class="contact-container">
-
 # CONTACT
 
 Step into the Forbidden Zone through these portals.
@@ -23,5 +21,3 @@ Step into the Forbidden Zone through these portals.
 Email: [drcrowzone@gmail.com](mailto:drcrowzone@gmail.com)
 
 Tel: 07710 123132
-
-</div>

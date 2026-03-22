@@ -4,8 +4,6 @@ title: ABOUT THE FORBIDDEN ZONE
 permalink: /about.html
 ---
 
-<div class="about-container">
-
 # ABOUT
 
 **Dr Crow And The Forbidden Zone**, a four-piece rock band with the single, unifying purpose of entertaining people through uniquely crafted rock songs, theatrical stage performance and hypnotic visuals.
@@ -43,5 +41,3 @@ Society will suppress any manifestation of real free thinking by claiming that f
 
 **Abandon the straight and narrow.**
 **Stray from the path.**
-
-</div>

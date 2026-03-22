@@ -50,5 +50,43 @@
       });
     }
   </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', function(e) {
+          if (this.parentNode.tagName === 'A') return; // Don't interfere if wrapped in a link
+          const overlay = document.createElement('div');
+          overlay.style.position = 'fixed';
+          overlay.style.top = '0';
+          overlay.style.left = '0';
+          overlay.style.width = '100%';
+          overlay.style.height = '100%';
+          overlay.style.backgroundColor = 'rgba(0,0,0,0.9)';
+          overlay.style.zIndex = '9999';
+          overlay.style.display = 'flex';
+          overlay.style.alignItems = 'center';
+          overlay.style.justifyContent = 'center';
+          overlay.style.cursor = 'zoom-out';
+          
+          const zoomed = document.createElement('img');
+          zoomed.src = this.src;
+          zoomed.style.maxWidth = '90%';
+          zoomed.style.maxHeight = '90%';
+          zoomed.style.objectFit = 'contain';
+          zoomed.style.border = '5px solid var(--accent-purple)';
+          zoomed.style.boxShadow = '0 0 30px rgba(0,0,0,0.8)';
+          
+          overlay.appendChild(zoomed);
+          document.body.appendChild(overlay);
+          
+          overlay.addEventListener('click', function() {
+            document.body.removeChild(overlay);
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>

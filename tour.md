@@ -4,8 +4,6 @@ title: GIGS
 permalink: /tour.html
 ---
 
-<div class="tour-container">
-
 # GIGS
 
 Come one come all to witness the spectacle.
@@ -32,6 +30,4 @@ Come one come all to witness the spectacle.
         maps_url=gig.maps_url %}
     {% endfor %}
   </div>
-</div>
-
 </div>

@@ -4,8 +4,6 @@ title: MUSIC
 permalink: /media.html
 ---
 
-<div class="music-container">
-
 # A message from outer space . .
 
 Here you will find a pan-dimensional portal to the album.
@@ -33,5 +31,3 @@ Get a special insight into the band's home environment......Crow Hall.
 Further frequencies from the zone.
 
 {% include soundcloud_player.html track_id="112000000" %}
-
-</div>

@@ -4,8 +4,6 @@ title: GALLERY
 permalink: /gallery.html
 ---
 
-<div class="gallery-container">
-
 # GALLERY
 
 Visual manifestations of the Forbidden Zone.
@@ -16,6 +14,4 @@ Visual manifestations of the Forbidden Zone.
     <img src="{{ 'assets/images/' | append: img | relative_url }}" alt="Forbidden Zone Manifestation">
   </div>
   {% endfor %}
-</div>
-
 </div>
