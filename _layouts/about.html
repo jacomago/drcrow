@@ -9,21 +9,21 @@ layout: default
 </section>
 
 <section class="about-intro">
-  <div class="container" markdown="1">
+  <div class="container">
     {{ content }}
   </div>
 </section>
 
 <section class="about-acid bg-surface-low">
-  <div class="container" markdown="1">
-    ## ACID
+  <div class="container">
+    <h2>ACID</h2>
     {% include video_embed.html youtube_id=page.acid_youtube_id %}
   </div>
 </section>
 
 <section class="about-exposition">
-  <div class="container" markdown="1">
-    ## EXPOSITION
+  <div class="container">
+    <h2>EXPOSITION</h2>
     {% capture exposition_content %}{% include exposition.md %}{% endcapture %}
     {{ exposition_content | markdownify }}
   </div>
