@@ -25,6 +25,5 @@ layout: default
   <div class="container">
     <h2>EXPOSITION</h2>
   </div>
-  {% capture exposition_content %}{% include exposition.md %}{% endcapture %}
-  {{ exposition_content | markdownify }}
+  {% include exposition_renderer.html %}
 </section>
