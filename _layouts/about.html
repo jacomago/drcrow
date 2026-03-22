@@ -1,12 +1,7 @@
 ---
 layout: default
 ---
-<section class="about-hero">
-  <div class="container">
-    <h1>{{ page.heading | default: page.title }}</h1>
-    {% if page.lead %}<p class="lead">{{ page.lead }}</p>{% endif %}
-  </div>
-</section>
+{% include page_hero.html title=page.heading tagline=page.lead image=page.image %}
 
 <section class="about-intro">
   <div class="container">

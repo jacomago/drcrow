@@ -98,14 +98,30 @@ main {
 }
 
 /* Hero Section - Asymmetrical */
-.hero-section {
+.hero-section, .page-hero {
   position: relative;
-  height: 90vh;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   border-bottom: none; /* No-line rule */
+}
+
+.hero-section {
+  height: 90vh;
+}
+
+.page-hero {
+  height: 50vh;
+  margin-top: -60px; /* Offset the main padding */
+}
+
+.page-hero .hero-overlay {
+  max-width: 800px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  margin-left: 5%;
+  border-left: 3px solid var(--accent-purple);
 }
 
 .hero-image {

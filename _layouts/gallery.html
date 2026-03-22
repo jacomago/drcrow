@@ -1,23 +1,29 @@
 ---
 layout: default
 ---
-<section class="gallery-header">
-  <div class="container">
-    <h1>{{ page.title }}</h1>
-    {% if page.lead %}<p class="lead">{{ page.lead }}</p>{% endif %}
-  </div>
-</section>
+{% include page_hero.html title=page.title tagline=page.lead image=page.image %}
 
 <section class="gallery-content bg-surface-low">
-  <div class="container" markdown="1">
+  <div class="container">
     {{ content }}
     
+    <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; letter-spacing: 0.3em; margin-bottom: 2rem; color: var(--accent-gold);">MANIFESTATIONS</h2>
     <div class="gallery-grid">
-      {% for img in site.data.gallery %}
+      {% for img in site.data.gallery_highlights %}
       <div class="gallery-item">
-        <img src="{{ 'assets/images/' | append: img | relative_url }}" alt="Forbidden Zone Manifestation" loading="lazy" decoding="async">
+        <img src="{{ 'assets/images/highlights/' | append: img | relative_url }}" alt="Forbidden Zone Manifestation" loading="lazy" decoding="async">
       </div>
       {% endfor %}
     </div>
+
+    <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; letter-spacing: 0.3em; margin-top: 6rem; margin-bottom: 2rem; color: var(--accent-gold);">THE ARCHIVE</h2>
+    <div class="gallery-grid" style="grid-template-columns: repeat(8, 1fr);">
+      {% for img in site.data.gallery_archive %}
+      <div class="gallery-item" style="grid-column: span 2; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+        <img src="{{ 'assets/images/archive/' | append: img | relative_url }}" alt="Forbidden Zone Archive" loading="lazy" decoding="async" style="height: 250px;">
+      </div>
+      {% endfor %}
+    </div>
+
   </div>
 </section>
