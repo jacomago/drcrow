@@ -4,7 +4,21 @@ export interface Props {
   track_id?: string;
   title: string;
   url: string;
-  mode?: 'square' | 'standard' | 'slim';
+  
+  // Layout Options
+  size?: 'large' | 'small';
+  minimal?: boolean;      // Only for 'large' size: hides everything but artwork and big play button
+  tracklist?: boolean;    // Shows/hides the tracklist
+  artwork?: 'none' | 'small' | 'big';
+  
+  // Style Options
+  bgcol?: string;         // hex code without #
+  linkcol?: string;       // hex code without #
+  transparent?: boolean;
+  
+  // Custom Container Styles
+  maxWidth?: string;
+  className?: string;
 }
 
 const { 
@@ -12,43 +26,61 @@ const {
   track_id, 
   title, 
   url, 
-  mode = album_id ? 'standard' : 'slim'
+  size = 'large',
+  minimal = false,
+  tracklist = false,
+  artwork = 'big',
+  bgcol = '131313',
+  linkcol = 'e4b5ff',
+  transparent = true,
+  maxWidth,
+  className = ''
 } = Astro.props;
 
-// Noir Stage Colors
-const bgcol = '131313';
-const linkcol = 'e4b5ff'; // --accent-purple
+/**
+ * Bandcamp Embed Logic:
+ * - Slim (42px): size=small, artwork=none
+ * - Standard Small (120px): size=small, artwork=small/big
+ * - Minimal Square (350px): size=large, minimal=true
+ * - Standard Big (470px+): size=large, minimal=false, tracklist=false/true
+ */
 
-// Build parameters based on mode
-let height = "470px";
-let width = "100%";
-let maxWidth = "350px";
-let params = `bgcol=${bgcol}/linkcol=${linkcol}/transparent=true/`;
+let height = "120px";
+const width = "100%";
+const effectiveMaxWidth = maxWidth || (size === 'large' ? "350px" : "100%");
 
-if (mode === 'square') {
+// Base parameters
+const queryParams = new URLSearchParams({
+  size,
+  bgcol,
+  linkcol,
+  transparent: transparent.toString(),
+  tracklist: tracklist.toString(),
+  artwork
+});
+
+if (minimal && size === 'large') {
+  queryParams.set('minimal', 'true');
   height = "350px";
-  maxWidth = "350px";
-  params += "size=large/minimal=true/";
-} else if (mode === 'standard') {
-  height = "470px";
-  maxWidth = "350px";
-  params += "size=large/tracklist=false/";
-} else if (mode === 'slim') {
-  height = "42px";
-  maxWidth = "100%";
-  params += "size=small/artwork=none/";
+} else if (size === 'large') {
+  height = tracklist ? "700px" : "470px";
+} else if (size === 'small') {
+  height = artwork === 'none' ? "42px" : "120px";
 }
 
 const baseUrl = album_id 
   ? `https://bandcamp.com/EmbeddedPlayer/album=${album_id}/`
   : `https://bandcamp.com/EmbeddedPlayer/track=${track_id}/`;
 
-const src = `${baseUrl}${params}`;
+const src = `${baseUrl}${queryParams.toString()}/`;
 ---
 
-<div class={`bandcamp-noir-frame ${mode}`} style={`max-width: ${maxWidth};`}>
+<div 
+  class={`bandcamp-player-container ${className} ${size} ${minimal ? 'minimal' : ''}`} 
+  style={`max-width: ${effectiveMaxWidth};`}
+>
   <iframe 
-    style={`border: 0; width: 100%; height: ${height};`} 
+    style={`border: 0; width: ${width}; height: ${height};`} 
     src={src} 
     seamless 
     loading="lazy"
@@ -58,7 +90,7 @@ const src = `${baseUrl}${params}`;
 </div>
 
 <style>
-  .bandcamp-noir-frame {
+  .bandcamp-player-container {
     position: relative;
     background: var(--surface-container-lowest, #0e0e0e);
     box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
@@ -67,23 +99,19 @@ const src = `${baseUrl}${params}`;
     margin: 20px 0;
   }
 
-  .bandcamp-noir-frame:hover {
+  /* No shadow for slim/small embeds unless specified */
+  .small {
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .bandcamp-player-container:not(.small):hover {
     transform: translateY(-5px) scale(1.01);
     box-shadow: 0 60px 100px rgba(89, 0, 137, 0.15);
   }
 
-  .square, .standard {
+  .large {
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .slim {
-    box-shadow: none;
-    background: transparent;
-  }
-  
-  .slim:hover {
-    transform: none;
-    box-shadow: none;
   }
 </style>
