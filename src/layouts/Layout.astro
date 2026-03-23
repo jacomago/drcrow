@@ -71,7 +71,7 @@ const currentYear = new Date().getFullYear();
     document.addEventListener('DOMContentLoaded', function() {
       const images = document.querySelectorAll('img');
       images.forEach(img => {
-        if (img.closest('.hero-image')) return; // Don't zoom the hero background
+        if (img.closest('.hero-image') || img.classList.contains('headline-logo')) return; // Don't zoom the hero background or logo
         img.style.cursor = 'zoom-in';
         img.addEventListener('click', function(e) {
           if (this.parentNode.tagName === 'A') return;
