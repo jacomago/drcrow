@@ -90,7 +90,7 @@ const currentYear = new Date().getFullYear();
           overlay.style.backdropFilter = 'blur(10px)';
           
           const zoomed = document.createElement('img');
-          zoomed.src = this.src;
+          zoomed.src = this.dataset.zoom || this.src;
           zoomed.style.maxWidth = '90%';
           zoomed.style.maxHeight = '90%';
           zoomed.style.objectFit = 'contain';

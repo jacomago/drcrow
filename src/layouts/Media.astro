@@ -4,10 +4,19 @@ import PageHero from '../components/PageHero.astro';
 import BandcampPlayer from '../components/BandcampPlayer.astro';
 import PortalBtn from '../components/PortalBtn.astro';
 import discography from '../data/discography.json';
+import { Image, getImage } from 'astro:assets';
 const { frontmatter } = Astro.props;
 
 // Categorize discography
 const albums = discography.items.filter(i => i.type === 'album');
+
+// Import all images from the assets directory
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif}');
+
+// Handle Crow Hall image specifically
+const crowHallPath = '/src/assets/images/archive/crow-hall.jpg';
+const crowHallThumb = images[crowHallPath] ? images[crowHallPath]() : null;
+const crowHallZoom = images[crowHallPath] ? await getImage({ src: images[crowHallPath](), width: 1600 }) : null;
 ---
 
 <Layout title={frontmatter.title}>
@@ -59,13 +68,20 @@ const albums = discography.items.filter(i => i.type === 'album');
           />
         </div>
         <div class="editorial-image offset-left">
-          <img 
-            src="/assets/images/archive/crow-hall.jpg" 
-            alt="Crow Hall" 
-            class="noir-art-frame"
-            loading="lazy"
-            decoding="async"
-          />
+          {crowHallThumb ? (
+            <Image 
+              src={crowHallThumb} 
+              alt="Crow Hall" 
+              class="noir-art-frame"
+              width={1200}
+              height={800}
+              loading="lazy"
+              decoding="async"
+              data-zoom={crowHallZoom?.src}
+            />
+          ) : (
+            <img src="/assets/images/archive/crow-hall.jpg" alt="Crow Hall" class="noir-art-frame" />
+          )}
         </div>
       </div>
     </div>
@@ -161,6 +177,7 @@ const albums = discography.items.filter(i => i.type === 'album');
     box-shadow: 0 40px 100px rgba(0,0,0,0.8);
     filter: sepia(0.1) contrast(1.1) brightness(0.8);
     transition: filter 0.8s ease;
+    cursor: zoom-in;
   }
 
   .noir-art-frame:hover {
