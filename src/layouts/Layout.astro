@@ -1,0 +1,111 @@
+---
+import '../styles/style.css';
+import { navigation } from '../data/navigation';
+import { socials } from '../data/socials';
+
+export interface Props {
+	title?: string;
+}
+
+const { title } = Astro.props;
+const siteTitle = "DR CROW AND THE FORBIDDEN ZONE";
+const currentYear = new Date().getFullYear();
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title ? `${title} | ${siteTitle}` : siteTitle}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;700&family=Space+Grotesk:wght@300;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" is:inline></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <ul>
+          {navigation.map((item) => (
+            <li><a href={item.link}>{item.name}</a></li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <main>
+    <slot />
+  </main>
+  
+  <footer>
+    <div class="container">
+      <div class="footer-socials">
+        {socials.map((social, index) => (
+          <>
+            <a href={social.url} target="_blank">{social.name}</a>
+            {index < socials.length - 1 && " | "}
+          </>
+        ))}
+      </div>
+      <p style="margin-top: 20px; font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--text-variant);">
+        &copy; 2018 - {currentYear} DR CROW AND THE FORBIDDEN ZONE. ALL RIGHTS RESERVED.
+      </p>
+      <p style="font-family: 'Noto Serif', serif; font-style: italic; color: var(--accent-purple); font-size: 1.2rem; margin-top: 10px;">Stray from the path.</p>
+    </div>
+  </footer>
+
+  <script is:inline>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        if (img.closest('.hero-image')) return; // Don't zoom the hero background
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', function(e) {
+          if (this.parentNode.tagName === 'A') return;
+          const overlay = document.createElement('div');
+          overlay.style.position = 'fixed';
+          overlay.style.top = '0';
+          overlay.style.left = '0';
+          overlay.style.width = '100%';
+          overlay.style.height = '100%';
+          overlay.style.backgroundColor = 'rgba(0,0,0,0.95)';
+          overlay.style.zIndex = '9999';
+          overlay.style.display = 'flex';
+          overlay.style.alignItems = 'center';
+          overlay.style.justifyContent = 'center';
+          overlay.style.cursor = 'zoom-out';
+          overlay.style.backdropFilter = 'blur(10px)';
+          
+          const zoomed = document.createElement('img');
+          zoomed.src = this.src;
+          zoomed.style.maxWidth = '90%';
+          zoomed.style.maxHeight = '90%';
+          zoomed.style.objectFit = 'contain';
+          zoomed.style.border = '1px solid var(--accent-gold)';
+          zoomed.style.boxShadow = '0 0 50px rgba(228, 181, 255, 0.2)';
+          
+          overlay.appendChild(zoomed);
+          document.body.appendChild(overlay);
+          
+          overlay.addEventListener('click', function() {
+            document.body.removeChild(overlay);
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

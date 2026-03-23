@@ -1,0 +1,24 @@
+---
+import Layout from './Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import PortalBtn from '../components/PortalBtn.astro';
+import { socials } from '../data/socials';
+const { frontmatter } = Astro.props;
+---
+<Layout title={frontmatter.title}>
+  <PageHero title={frontmatter.title} tagline={frontmatter.lead} image={frontmatter.image} />
+  <section class="contact-portals">
+    <div class="container">
+      <div class="portals-grid">
+        {socials.map(social => (
+          <PortalBtn url={social.url} name={social.name} class={social.class} />
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="contact-direct bg-surface-low">
+    <div class="container">
+      <slot />
+    </div>
+  </section>
+</Layout>

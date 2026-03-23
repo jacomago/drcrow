@@ -1,0 +1,22 @@
+---
+export interface Props {
+  title?: string;
+  tagline?: string;
+  image?: string;
+}
+const { title, tagline, image } = Astro.props;
+
+// Ensure image path starts with a slash if it's pointing to the public directory
+const imagePath = image?.startsWith('http') ? image : (image?.startsWith('/') ? image : `/${image}`);
+---
+<div class="page-hero">
+  <div class="hero-overlay">
+    <h1>{title}</h1>
+    {tagline && <p class="hero-tagline">{tagline}</p>}
+  </div>
+  {image && (
+    <div class="hero-image">
+      <img src={imagePath} alt={title} loading="lazy" decoding="async" />
+    </div>
+  )}
+</div>

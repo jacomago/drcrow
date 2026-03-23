@@ -1,0 +1,6 @@
+export const socials = [
+  { name: 'FACEBOOK', url: 'https://www.facebook.com/people/Dr-Crow-The-Forbidden-Zone/100063671582176/', class: 'facebook' },
+  { name: 'YOUTUBE', url: 'https://www.youtube.com/@drcrowandtheforbiddenzone9192', class: 'youtube' },
+  { name: 'SOUNDCLOUD', url: 'https://soundcloud.com/user-20555187', class: 'soundcloud' },
+  { name: 'BANDCAMP', url: 'https://drcrow.bandcamp.com', class: 'bandcamp' }
+];

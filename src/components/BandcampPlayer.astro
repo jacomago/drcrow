@@ -1,0 +1,20 @@
+---
+export interface Props {
+  album_id?: string;
+  track_id?: string;
+  title: string;
+  url: string;
+}
+const { album_id, track_id, title, url } = Astro.props;
+---
+<div class="media-wrapper">
+{album_id ? (
+  <iframe style="border: 0; width: 100%; height: 470px;" src={`https://bandcamp.com/EmbeddedPlayer/album=${album_id}/size=large/bgcol=121212/linkcol=4b0082/tracklist=false/transparent=true/`} seamless loading="lazy" decoding="async">
+    <a href={url}>{title}</a>
+  </iframe>
+) : track_id ? (
+  <iframe style="border: 0; width: 100%; height: 120px;" src={`https://bandcamp.com/EmbeddedPlayer/track=${track_id}/size=large/bgcol=121212/linkcol=4b0082/tracklist=false/artwork=small/transparent=true/`} seamless loading="lazy" decoding="async">
+    <a href={url}>{title}</a>
+  </iframe>
+) : null}
+</div>

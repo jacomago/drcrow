@@ -1,0 +1,42 @@
+---
+import Layout from './Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import BandcampPlayer from '../components/BandcampPlayer.astro';
+import PortalBtn from '../components/PortalBtn.astro';
+const { frontmatter } = Astro.props;
+---
+<Layout title={frontmatter.title}>
+  <PageHero title={frontmatter.title} tagline={frontmatter.lead} image={frontmatter.image} />
+  <section class="music-feature">
+    <div class="container">
+      <h2>The new album: STROHAYR</h2>
+      <p>The album is presented in its entirety. A story in 10 parts (just like life really).</p>
+      <BandcampPlayer album_id="66352487" title="Strohayr by Dr Crow and The Forbidden Zone" url="https://drcrow.bandcamp.com/album/strohayr" />
+    </div>
+  </section>
+  <section class="music-insight bg-surface-low">
+    <div class="container">
+      <h2>Crow Hall Insight</h2>
+      <p>Get a special insight into the band's home environment......Crow Hall.</p>
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <img src="assets/images/archive/crow-hall.jpg" alt="Crow Hall" style="border: 1px solid var(--border-ghost); max-width: 100%;" />
+      </div>
+      <BandcampPlayer track_id="3830604073" title="Radio Interview by Dr Crow and The Forbidden Zone" url="https://drcrow.bandcamp.com/track/radio-interview" />
+    </div>
+  </section>
+  <section class="music-bones">
+    <div class="container">
+      <h2>A Fistful of Broken Bones</h2>
+      <BandcampPlayer album_id="1201722343" title="Fistful Of Broken Bones by Dr Crow and The Forbidden Zone" url="https://drcrow.bandcamp.com/album/fistful-of-broken-bones" />
+    </div>
+  </section>
+  <section class="music-archive bg-surface-low">
+    <div class="container">
+      <h2>THE SOUNDCLOUD ARCHIVE</h2>
+      <p>Further frequencies from the zone.</p>
+      <div class="portals-grid" style="max-width: 400px; margin: 40px auto;">
+        <PortalBtn url="https://soundcloud.com/user-20555187" name="VISIT SOUNDCLOUD" class="soundcloud" />
+      </div>
+    </div>
+  </section>
+</Layout>

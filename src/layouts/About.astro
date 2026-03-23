@@ -1,0 +1,27 @@
+---
+import Layout from './Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import VideoEmbed from '../components/VideoEmbed.astro';
+import ExpositionRenderer from '../components/ExpositionRenderer.astro';
+const { frontmatter } = Astro.props;
+---
+<Layout title={frontmatter.title}>
+  <PageHero title={frontmatter.heading} tagline={frontmatter.lead} image={frontmatter.image} />
+  <section class="about-intro">
+    <div class="container">
+      <slot />
+    </div>
+  </section>
+  <section class="about-acid bg-surface-low">
+    <div class="container">
+      <h2>ACID</h2>
+      <VideoEmbed youtube_id={frontmatter.acid_youtube_id} />
+    </div>
+  </section>
+  <section class="about-exposition">
+    <div class="container">
+      <h2>EXPOSITION</h2>
+    </div>
+    <ExpositionRenderer />
+  </section>
+</Layout>

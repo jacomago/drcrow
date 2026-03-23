@@ -1,0 +1,9 @@
+export const navigation = [
+  { name: 'HOME', link: '/' },
+  { name: 'ABOUT', link: '/about' },
+  { name: 'GIGS', link: '/tour' },
+  { name: 'MUSIC', link: '/media' },
+  { name: 'VIDEO', link: '/videos' },
+  { name: 'GALLERY', link: '/gallery' },
+  { name: 'CONTACT', link: '/contact' },
+];

@@ -1,0 +1,39 @@
+{
+  "name": "drcrow",
+  "version": "1.0.0",
+  "description": "drcrow.co.uk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacomago/drcrow.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jacomago/drcrow/issues"
+  },
+  "homepage": "https://github.com/jacomago/drcrow#readme",
+  "devDependencies": {
+    "@astrojs/react": "^5.0.1",
+    "@types/js-yaml": "^4.0.9",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^6.0.8",
+    "js-yaml": "^4.1.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@types/marked": "^5.0.2",
+    "marked": "^17.0.5"
+  }
+}

@@ -1,0 +1,17 @@
+---
+export interface Props {
+  date: string;
+  venue: string;
+  location: string;
+  maps_url?: string;
+}
+const { date, venue, location, maps_url } = Astro.props;
+---
+<div class="event-item">
+  <div class="event-date">{date}</div>
+  <div class="event-details">
+    <h3 class="event-venue">{venue}</h3>
+    <p class="event-location">{location}</p>
+    {maps_url && <a href={maps_url} class="portal-link" target="_blank">LOCATE VIA PORTAL (MAPS)</a>}
+  </div>
+</div>

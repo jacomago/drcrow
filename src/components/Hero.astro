@@ -1,0 +1,28 @@
+---
+export interface Props {
+  title?: string;
+  tagline?: string;
+  image?: string;
+  cta_link?: string;
+  cta_text?: string;
+}
+const { title, tagline = ". . . . stray from the path", image = "/assets/images/heroes/home-hero.jpg", cta_link, cta_text = "LISTEN NOW" } = Astro.props;
+
+// Ensure image path starts with a slash if it's pointing to the public directory
+const imagePath = image?.startsWith('http') ? image : (image?.startsWith('/') ? image : `/${image}`);
+---
+<div class="hero-section">
+  <div class="hero-overlay">
+    <p class="hero-tagline">{tagline}</p>
+    <img src="/illustrations/header.png" alt={title} class="headline-logo" loading="eager" decoding="async" />
+    {cta_link && (
+      <>
+        <br />
+        <a href={cta_link} class="hero-cta">{cta_text}</a>
+      </>
+    )}
+  </div>
+  <div class="hero-image">
+    <img src={imagePath} alt={title} loading="eager" decoding="async" />
+  </div>
+</div>

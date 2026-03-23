@@ -1,0 +1,24 @@
+---
+export interface Props {
+  youtube_id?: string;
+  facebook_url?: string;
+  wix_video_url?: string;
+}
+const { youtube_id, facebook_url, wix_video_url } = Astro.props;
+---
+{youtube_id ? (
+<div class="video-responsive">
+  <iframe src={`https://www.youtube.com/embed/${youtube_id}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+</div>
+) : facebook_url ? (
+<div class="video-responsive">
+  <iframe src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(facebook_url)}&show_text=0&width=560`} style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true" loading="lazy"></iframe>
+</div>
+) : wix_video_url ? (
+<div class="video-responsive">
+  <video autoplay loop muted playsinline>
+    <source src={wix_video_url} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+) : null}

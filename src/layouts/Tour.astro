@@ -1,0 +1,29 @@
+---
+import Layout from './Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import EventItem from '../components/EventItem.astro';
+import gigs from '../data/gigs.json';
+const { frontmatter } = Astro.props;
+
+const currentGigs = gigs.filter(gig => gig.status === 'current');
+const legacyGigs = gigs.filter(gig => gig.status === 'legacy');
+---
+<Layout title={frontmatter.title}>
+  <PageHero title={frontmatter.title} tagline={frontmatter.lead} image={frontmatter.image} />
+  <section class="tour-content bg-surface-low">
+    <div class="container">
+      <slot />
+      <div class="events-list">
+        {currentGigs.map(gig => (
+          <EventItem date={gig.date} venue={gig.venue} location={gig.location} maps_url={gig.maps_url} />
+        ))}
+        <div class="historical-gigs" style="margin-top: 80px;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; letter-spacing: 0.3em; opacity: 0.6;">LEGACY PORTALS</h2>
+          {legacyGigs.map(gig => (
+            <EventItem date={gig.date} venue={gig.venue} location={gig.location} maps_url={gig.maps_url} />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

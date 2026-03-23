@@ -1,0 +1,11 @@
+---
+export interface Props {
+  url: string;
+  name: string;
+  class?: string;
+}
+const { url, name, class: className = '' } = Astro.props;
+---
+<a href={url} class={`portal-btn ${className}`} target="_blank">
+  <span class="portal-text">{name}</span>
+</a>

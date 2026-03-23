@@ -1,0 +1,38 @@
+---
+import exposition from '../data/exposition.json';
+import { marked } from 'marked';
+---
+{exposition.map((item) => (
+  <>
+    {item.type === "hero" && (
+      <div class="exposition-hero-img">
+        <img src={item.image.replace(/^\//, '')} alt={item.alt} loading="lazy" decoding="async" style="width: 100%; height: 60vh; object-fit: cover; filter: brightness(0.6);" />
+      </div>
+    )}
+    {item.type === "row" && (
+      <div class="container">
+        <div class={`editorial-row ${item.reverse ? 'reverse' : ''}`}>
+          <div class="editorial-text" set:html={marked.parse(item.text || '')} />
+          <div class="editorial-image">
+            <img src={item.image.replace(/^\//, '')} alt={item.alt} loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+    )}
+    {item.type === "quote" && (
+      <div class="container">
+        <blockquote class="pull-quote">
+          "{item.text}"
+        </blockquote>
+      </div>
+    )}
+    {item.type === "cta" && (
+      <div class="container">
+        <p class="cta text-center" style="font-size: 2rem;">
+          <span set:html={marked.parseInline(item.text || '')} /><br />
+          <span style="color: var(--accent-gold);">{item.subtext}</span>
+        </p>
+      </div>
+    )}
+  </>
+))}
