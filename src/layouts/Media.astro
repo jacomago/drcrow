@@ -6,40 +6,41 @@ import PortalBtn from '../components/PortalBtn.astro';
 import discography from '../data/discography.json';
 const { frontmatter } = Astro.props;
 
-const featured = discography.items.find(i => i.id === 'featured');
-const bones = discography.items.find(i => i.id === 'bones');
+// Categorize discography
+const albums = discography.items.filter(i => i.type === 'album');
 ---
 
 <Layout title={frontmatter.title}>
   <PageHero title={frontmatter.title} tagline={frontmatter.lead} image={frontmatter.image} />
 
-  <!-- Featured Release -->
-  {featured && (
-    <section class="music-editorial featured">
+  {albums.map((album, index) => (
+    <section class={`music-editorial ${index % 2 === 0 ? '' : 'bg-surface-low'}`}>
       <div class="container">
-        <div class="editorial-grid">
+        <div class={`editorial-grid ${index % 2 !== 0 ? 'reverse' : ''}`}>
           <div class="editorial-text">
-            <h2 class="label-metadata">{featured.label}</h2>
-            <h1 class="display-title">{featured.display_title}</h1>
+            <h2 class="label-metadata">{album.label}</h2>
+            <h1 class="display-title">{album.display_title}</h1>
             <p class="body-narrative">
-              {featured.description}
+              {album.description}
             </p>
           </div>
-          <div class="editorial-media overlap-right">
+          <div class={`editorial-media ${index % 2 === 0 ? 'overlap-right' : 'overlap-left'}`}>
             <BandcampPlayer 
-              album_id={featured.album_id} 
-              title={featured.title} 
-              url={featured.url} 
-              minimal={true}
+              album_id={album.album_id} 
+              title={album.title} 
+              url={album.url} 
+              size="large"
+              tracklist={true}
+              maxWidth="400px"
             />
           </div>
         </div>
       </div>
     </section>
-  )}
+  ))}
 
   <!-- Crow Hall Insight: Tonal Layer Shift -->
-  <section class="music-editorial bg-surface-low insight">
+  <section class="music-editorial insight">
     <div class="container">
       <div class="editorial-grid reverse">
         <div class="editorial-text">
@@ -69,31 +70,6 @@ const bones = discography.items.find(i => i.id === 'bones');
       </div>
     </div>
   </section>
-
-  <!-- Past Works -->
-  {bones && (
-    <section class="music-editorial archival-bones">
-      <div class="container">
-        <div class="editorial-grid">
-          <div class="editorial-media overlap-left">
-            <BandcampPlayer 
-              album_id={bones.album_id} 
-              title={bones.title} 
-              url={bones.url} 
-              minimal={true}
-            />
-          </div>
-          <div class="editorial-text offset-right">
-            <h2 class="label-metadata">{bones.label}</h2>
-            <h3 class="headline-accent">{bones.display_title}</h3>
-            <p class="body-narrative">
-              {bones.description}
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  )}
 
   <!-- SoundCloud: The Archival Well -->
   <section class="music-editorial bg-surface-lowest archive-well">
@@ -138,7 +114,7 @@ const bones = discography.items.find(i => i.id === 'bones');
   }
 
   .display-title {
-    font-size: clamp(3rem, 8vw, 6rem);
+    font-size: clamp(2.5rem, 6vw, 4rem);
     margin-bottom: 2rem;
     line-height: 0.9;
   }
