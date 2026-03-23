@@ -1,38 +1,55 @@
 ---
+import { Image } from 'astro:assets';
 import exposition from '../data/exposition.json';
 import { marked } from 'marked';
+
+// Import all images from the illustrations directory
+const illustrations = import.meta.glob<{ default: ImageMetadata }>('/src/illustrations/**/*.{jpeg,jpg,png,gif,svg}');
 ---
-{exposition.items.map((item: any) => (
-  <>
-    {item.type === "hero" && (
-      <div class="exposition-hero-img">
-        <img src={item.image.replace(/^\//, '')} alt={item.alt} loading="lazy" decoding="async" style="width: 100%; height: 60vh; object-fit: cover; filter: brightness(0.6);" />
-      </div>
-    )}
-    {item.type === "row" && (
-      <div class="container">
-        <div class={`editorial-row ${item.reverse ? 'reverse' : ''}`}>
-          <div class="editorial-text" set:html={marked.parse(item.text || '')} />
-          <div class="editorial-image">
-            <img src={item.image.replace(/^\//, '')} alt={item.alt} loading="lazy" decoding="async" />
+{exposition.items.map((item: any) => {
+  const assetPath = `/src/${item.image?.replace(/^\//, '')}`;
+  const optimizedImage = illustrations[assetPath];
+
+  return (
+    <>
+      {item.type === "hero" && (
+        <div class="exposition-hero-img">
+          {optimizedImage ? (
+            <Image src={optimizedImage()} alt={item.alt} width={1920} height={1080} loading="lazy" decoding="async" style="width: 100%; height: 60vh; object-fit: cover; filter: brightness(0.6);" />
+          ) : (
+            <img src={item.image.replace(/^\//, '')} alt={item.alt} loading="lazy" decoding="async" style="width: 100%; height: 60vh; object-fit: cover; filter: brightness(0.6);" />
+          )}
+        </div>
+      )}
+      {item.type === "row" && (
+        <div class="container">
+          <div class={`editorial-row ${item.reverse ? 'reverse' : ''}`}>
+            <div class="editorial-text" set:html={marked.parse(item.text || '')} />
+            <div class="editorial-image">
+              {optimizedImage ? (
+                <Image src={optimizedImage()} alt={item.alt} width={800} height={600} loading="lazy" decoding="async" />
+              ) : (
+                <img src={item.image.replace(/^\//, '')} alt={item.alt} loading="lazy" decoding="async" />
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    )}
-    {item.type === "quote" && (
-      <div class="container">
-        <blockquote class="pull-quote">
-          "{item.text}"
-        </blockquote>
-      </div>
-    )}
-    {item.type === "cta" && (
-      <div class="container">
-        <p class="cta text-center" style="font-size: 2rem;">
-          <span set:html={marked.parseInline(item.text || '')} /><br />
-          <span style="color: var(--accent-gold);">{item.subtext}</span>
-        </p>
-      </div>
-    )}
-  </>
-))}
+      )}
+      {item.type === "quote" && (
+        <div class="container">
+          <blockquote class="pull-quote">
+            "{item.text}"
+          </blockquote>
+        </div>
+      )}
+      {item.type === "cta" && (
+        <div class="container">
+          <p class="cta text-center" style="font-size: 2rem;">
+            <span set:html={marked.parseInline(item.text || '')} /><br />
+            <span style="color: var(--accent-gold);">{item.subtext}</span>
+          </p>
+        </div>
+      )}
+    </>
+  );
+})}
