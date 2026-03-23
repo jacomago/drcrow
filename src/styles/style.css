@@ -118,7 +118,7 @@ main {
 
 .page-hero .hero-overlay {
   max-width: 800px;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.3);
   backdrop-filter: blur(10px);
   margin-left: 5%;
   border-left: 3px solid var(--accent-purple);
