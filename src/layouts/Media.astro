@@ -3,35 +3,40 @@ import Layout from './Layout.astro';
 import PageHero from '../components/PageHero.astro';
 import BandcampPlayer from '../components/BandcampPlayer.astro';
 import PortalBtn from '../components/PortalBtn.astro';
+import discography from '../data/discography.json';
 const { frontmatter } = Astro.props;
+
+const featured = discography.items.find(i => i.id === 'featured');
+const bones = discography.items.find(i => i.id === 'bones');
 ---
 
 <Layout title={frontmatter.title}>
   <PageHero title={frontmatter.title} tagline={frontmatter.lead} image={frontmatter.image} />
 
-  <!-- Featured Release: STROHAYR -->
-  <section class="music-editorial featured">
-    <div class="container">
-      <div class="editorial-grid">
-        <div class="editorial-text">
-          <h2 class="label-metadata">LATEST MANIFESTATION</h2>
-          <h1 class="display-title">STROHAYR</h1>
-          <p class="body-narrative">
-            The new album is presented in its entirety. A story in 10 parts, much like life itself. 
-            A journey through the sonic architecture of the Forbidden Zone.
-          </p>
-        </div>
-        <div class="editorial-media overlap-right">
-          <BandcampPlayer 
-            album_id="66352487" 
-            title="Strohayr by Dr Crow and The Forbidden Zone" 
-            url="https://drcrow.bandcamp.com/album/strohayr" 
-            size="large"
-          />
+  <!-- Featured Release -->
+  {featured && (
+    <section class="music-editorial featured">
+      <div class="container">
+        <div class="editorial-grid">
+          <div class="editorial-text">
+            <h2 class="label-metadata">{featured.label}</h2>
+            <h1 class="display-title">{featured.display_title}</h1>
+            <p class="body-narrative">
+              {featured.description}
+            </p>
+          </div>
+          <div class="editorial-media overlap-right">
+            <BandcampPlayer 
+              album_id={featured.album_id} 
+              title={featured.title} 
+              url={featured.url} 
+              size="large"
+            />
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  )}
 
   <!-- Crow Hall Insight: Tonal Layer Shift -->
   <section class="music-editorial bg-surface-low insight">
@@ -64,28 +69,30 @@ const { frontmatter } = Astro.props;
     </div>
   </section>
 
-  <!-- Past Works: A Fistful of Broken Bones -->
-  <section class="music-editorial archival-bones">
-    <div class="container">
-      <div class="editorial-grid">
-        <div class="editorial-media overlap-left">
-          <BandcampPlayer 
-            album_id="1201722343" 
-            title="Fistful Of Broken Bones by Dr Crow and The Forbidden Zone" 
-            url="https://drcrow.bandcamp.com/album/fistful-of-broken-bones" 
-            size="large"
-          />
-        </div>
-        <div class="editorial-text offset-right">
-          <h2 class="label-metadata">ARCHIVAL FREQUENCY</h2>
-          <h3 class="headline-accent">A Fistful of Broken Bones</h3>
-          <p class="body-narrative">
-            The foundational resonance. A raw extraction of sound from the depths of the path less traveled.
-          </p>
+  <!-- Past Works -->
+  {bones && (
+    <section class="music-editorial archival-bones">
+      <div class="container">
+        <div class="editorial-grid">
+          <div class="editorial-media overlap-left">
+            <BandcampPlayer 
+              album_id={bones.album_id} 
+              title={bones.title} 
+              url={bones.url} 
+              size="large"
+            />
+          </div>
+          <div class="editorial-text offset-right">
+            <h2 class="label-metadata">{bones.label}</h2>
+            <h3 class="headline-accent">{bones.display_title}</h3>
+            <p class="body-narrative">
+              {bones.description}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  )}
 
   <!-- SoundCloud: The Archival Well -->
   <section class="music-editorial bg-surface-lowest archive-well">

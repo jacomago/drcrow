@@ -158,3 +158,19 @@ collections:
             name: "items"
             widget: "list"
             field: {label: "Image Name", name: "image", widget: "string"}
+      - file: "src/data/discography.json"
+        label: "Discography"
+        name: "discography"
+        fields:
+          - label: "Album List"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Internal ID", name: "id", widget: "string"}
+              - {label: "Type", name: "type", widget: "string", default: "album"}
+              - {label: "Bandcamp Album ID", name: "album_id", widget: "string"}
+              - {label: "Full Title", name: "title", widget: "string"}
+              - {label: "Bandcamp URL", name: "url", widget: "string"}
+              - {label: "Display Title", name: "display_title", widget: "string"}
+              - {label: "Label/Tag", name: "label", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
