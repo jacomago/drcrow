@@ -46,24 +46,25 @@ const {
  */
 
 let height = "120px";
-const width = "100%";
 const effectiveMaxWidth = maxWidth || (size === 'large' ? "350px" : "100%");
 
-// Base parameters
-const queryParams = new URLSearchParams({
-  size,
-  bgcol,
-  linkcol,
-  transparent: transparent.toString(),
-  tracklist: tracklist.toString(),
-  artwork
-});
+// Construct path parameters
+const params: string[] = [];
+params.push(`size=${size}`);
+params.push(`bgcol=${bgcol}`);
+params.push(`linkcol=${linkcol}`);
+params.push(`transparent=${transparent}`);
+params.push(`tracklist=${tracklist}`);
+params.push(`artwork=${artwork}`);
 
 if (minimal && size === 'large') {
-  queryParams.set('minimal', 'true');
+  params.push('minimal=true');
   height = "350px";
 } else if (size === 'large') {
-  height = tracklist ? "700px" : "470px";
+  // Height calculation for standard big player
+  // Standard without tracklist is 470px. With tracklist it depends on number of tracks.
+  // Bandcamp default for full album with tracklist is often around 600-700px.
+  height = tracklist ? "621px" : "470px";
 } else if (size === 'small') {
   height = artwork === 'none' ? "42px" : "120px";
 }
@@ -72,7 +73,7 @@ const baseUrl = album_id
   ? `https://bandcamp.com/EmbeddedPlayer/album=${album_id}/`
   : `https://bandcamp.com/EmbeddedPlayer/track=${track_id}/`;
 
-const src = `${baseUrl}${queryParams.toString()}/`;
+const src = `${baseUrl}${params.join('/')}/`;
 ---
 
 <div 
@@ -80,7 +81,7 @@ const src = `${baseUrl}${queryParams.toString()}/`;
   style={`max-width: ${effectiveMaxWidth};`}
 >
   <iframe 
-    style={`border: 0; width: ${width}; height: ${height};`} 
+    style={`border: 0; width: 100%; height: ${height};`} 
     src={src} 
     seamless 
     loading="lazy"
