@@ -77,3 +77,84 @@ collections:
           - {label: "Layout", name: "layout", widget: "hidden", default: "default"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "data_files"
+    label: "Data Files"
+    files:
+      - file: "src/data/navigation.json"
+        label: "Navigation"
+        name: "navigation"
+        fields:
+          - label: "Navigation Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Link", name: "link", widget: "string"}
+      - file: "src/data/socials.json"
+        label: "Socials"
+        name: "socials"
+        fields:
+          - label: "Social Links"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
+              - {label: "CSS Class", name: "class", widget: "string"}
+      - file: "src/data/gigs.json"
+        label: "Gigs"
+        name: "gigs"
+        fields:
+          - label: "Gigs List"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Status (current/legacy)", name: "status", widget: "string"}
+              - {label: "Date", name: "date", widget: "string"}
+              - {label: "Venue", name: "venue", widget: "string"}
+              - {label: "Location", name: "location", widget: "string"}
+              - {label: "Maps URL", name: "maps_url", widget: "string", required: false}
+      - file: "src/data/videos.json"
+        label: "Videos"
+        name: "videos"
+        fields:
+          - label: "Videos List"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "YouTube ID", name: "youtube_id", widget: "string", required: false}
+              - {label: "Facebook URL", name: "facebook_url", widget: "string", required: false}
+              - {label: "Wix Video URL", name: "wix_video_url", widget: "string", required: false}
+      - file: "src/data/exposition.json"
+        label: "Exposition"
+        name: "exposition"
+        fields:
+          - label: "Exposition Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Type", name: "type", widget: "select", options: ["hero", "row", "quote", "cta"]}
+              - {label: "Text", name: "text", widget: "text", required: false}
+              - {label: "Subtext", name: "subtext", widget: "string", required: false}
+              - {label: "Image", name: "image", widget: "image", required: false}
+              - {label: "Alt Text", name: "alt", widget: "string", required: false}
+              - {label: "Reverse Layout", name: "reverse", widget: "boolean", required: false}
+      - file: "src/data/gallery_highlights.json"
+        label: "Gallery Highlights"
+        name: "gallery_highlights"
+        fields:
+          - label: "Images"
+            name: "items"
+            widget: "list"
+            field: {label: "Image Name", name: "image", widget: "string"}
+      - file: "src/data/gallery_archive.json"
+        label: "Gallery Archive"
+        name: "gallery_archive"
+        fields:
+          - label: "Images"
+            name: "items"
+            widget: "list"
+            field: {label: "Image Name", name: "image", widget: "string"}

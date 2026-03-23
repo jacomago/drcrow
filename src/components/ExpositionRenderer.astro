@@ -2,7 +2,7 @@
 import exposition from '../data/exposition.json';
 import { marked } from 'marked';
 ---
-{exposition.map((item) => (
+{exposition.items.map((item: any) => (
   <>
     {item.type === "hero" && (
       <div class="exposition-hero-img">

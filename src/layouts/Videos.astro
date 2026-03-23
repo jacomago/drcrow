@@ -10,7 +10,7 @@ const { frontmatter } = Astro.props;
   <section class="videos-content bg-surface-low">
     <div class="container">
       <slot />
-      {videos.map(video => (
+      {videos.items.map((video: any) => (
         <section class="video-feature">
           <h2>{video.title}</h2>
           <p>{video.description}</p>

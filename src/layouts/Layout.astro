@@ -1,7 +1,7 @@
 ---
 import '../styles/style.css';
-import { navigation } from '../data/navigation';
-import { socials } from '../data/socials';
+import navigation from '../data/navigation.json';
+import socials from '../data/socials.json';
 
 export interface Props {
 	title?: string;
@@ -28,7 +28,7 @@ const currentYear = new Date().getFullYear();
     <div class="container">
       <nav>
         <ul>
-          {navigation.map((item) => (
+          {navigation.items.map((item) => (
             <li><a href={item.link}>{item.name}</a></li>
           ))}
         </ul>
@@ -43,10 +43,10 @@ const currentYear = new Date().getFullYear();
   <footer>
     <div class="container">
       <div class="footer-socials">
-        {socials.map((social, index) => (
+        {socials.items.map((social, index) => (
           <>
             <a href={social.url} target="_blank">{social.name}</a>
-            {index < socials.length - 1 && " | "}
+            {index < socials.items.length - 1 && " | "}
           </>
         ))}
       </div>

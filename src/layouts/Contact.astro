@@ -2,7 +2,7 @@
 import Layout from './Layout.astro';
 import PageHero from '../components/PageHero.astro';
 import PortalBtn from '../components/PortalBtn.astro';
-import { socials } from '../data/socials';
+import socials from '../data/socials.json';
 const { frontmatter } = Astro.props;
 ---
 <Layout title={frontmatter.title}>
@@ -10,7 +10,7 @@ const { frontmatter } = Astro.props;
   <section class="contact-portals">
     <div class="container">
       <div class="portals-grid">
-        {socials.map(social => (
+        {socials.items.map((social: any) => (
           <PortalBtn url={social.url} name={social.name} class={social.class} />
         ))}
       </div>

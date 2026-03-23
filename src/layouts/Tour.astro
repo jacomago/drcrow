@@ -5,8 +5,8 @@ import EventItem from '../components/EventItem.astro';
 import gigs from '../data/gigs.json';
 const { frontmatter } = Astro.props;
 
-const currentGigs = gigs.filter(gig => gig.status === 'current');
-const legacyGigs = gigs.filter(gig => gig.status === 'legacy');
+const currentGigs = gigs.items.filter((gig: any) => gig.status === 'current');
+const legacyGigs = gigs.items.filter((gig: any) => gig.status === 'legacy');
 ---
 <Layout title={frontmatter.title}>
   <PageHero title={frontmatter.title} tagline={frontmatter.lead} image={frontmatter.image} />
