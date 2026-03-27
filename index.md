@@ -6,11 +6,13 @@ permalink: /
 
 {% include hero.html 
   title="Dr Crow and the Forbidden Zone" 
-  tagline=". . . . stray from the path" 
+  tagline="Step into the unknown" 
   cta_link="/media.html" 
   cta_text="LISTEN NOW" 
-  image="assets/images/home-hero.jpg" %}
+  image="assets/images/heroes/home-hero.jpg" %}
 
-<div class="home-intro text-center">
-  <p class="lead">Abandon the straight and narrow. Enter the Forbidden Zone.</p>
-</div>
+<section class="home-intro text-center">
+  <div class="container">
+    <p class="lead">Abandon the straight and narrow. Enter the Forbidden Zone.</p>
+  </div>
+</section>

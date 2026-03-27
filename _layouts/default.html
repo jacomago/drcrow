@@ -6,7 +6,7 @@
   <title>{{ page.title }} | {{ site.title }}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Roboto:wght@400;700&family=Courier+Prime&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;700&family=Space+Grotesk:wght@300;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
@@ -23,7 +23,7 @@
     </div>
   </header>
   
-  <main class="container">
+  <main>
     {{ content }}
   </main>
   
@@ -34,8 +34,10 @@
           <a href="{{ social.url }}" target="_blank">{{ social.name }}</a>{% unless forloop.last %} | {% endunless %}
         {% endfor %}
       </div>
-      <p style="margin-top: 20px; font-family: 'Courier Prime', monospace; font-size: 0.8rem;">&copy; 2018 - {{ "now" | date: "%Y" }} DR CROW AND THE FORBIDDEN ZONE. ALL RIGHTS RESERVED.</p>
-      <p style="font-style: italic; color: var(--accent-purple);">Stray from the path.</p>
+      <p style="margin-top: 20px; font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--text-variant);">
+        &copy; 2018 - {{ "now" | date: "%Y" }} DR CROW AND THE FORBIDDEN ZONE. ALL RIGHTS RESERVED.
+      </p>
+      <p style="font-family: 'Noto Serif', serif; font-style: italic; color: var(--accent-purple); font-size: 1.2rem; margin-top: 10px;">Stray from the path.</p>
     </div>
   </footer>
 
@@ -54,29 +56,31 @@
     document.addEventListener('DOMContentLoaded', function() {
       const images = document.querySelectorAll('img');
       images.forEach(img => {
+        if (img.closest('.hero-image')) return; // Don't zoom the hero background
         img.style.cursor = 'zoom-in';
         img.addEventListener('click', function(e) {
-          if (this.parentNode.tagName === 'A') return; // Don't interfere if wrapped in a link
+          if (this.parentNode.tagName === 'A') return;
           const overlay = document.createElement('div');
           overlay.style.position = 'fixed';
           overlay.style.top = '0';
           overlay.style.left = '0';
           overlay.style.width = '100%';
           overlay.style.height = '100%';
-          overlay.style.backgroundColor = 'rgba(0,0,0,0.9)';
+          overlay.style.backgroundColor = 'rgba(0,0,0,0.95)';
           overlay.style.zIndex = '9999';
           overlay.style.display = 'flex';
           overlay.style.alignItems = 'center';
           overlay.style.justifyContent = 'center';
           overlay.style.cursor = 'zoom-out';
+          overlay.style.backdropFilter = 'blur(10px)';
           
           const zoomed = document.createElement('img');
           zoomed.src = this.src;
           zoomed.style.maxWidth = '90%';
           zoomed.style.maxHeight = '90%';
           zoomed.style.objectFit = 'contain';
-          zoomed.style.border = '5px solid var(--accent-purple)';
-          zoomed.style.boxShadow = '0 0 30px rgba(0,0,0,0.8)';
+          zoomed.style.border = '1px solid var(--accent-gold)';
+          zoomed.style.boxShadow = '0 0 50px rgba(228, 181, 255, 0.2)';
           
           overlay.appendChild(zoomed);
           document.body.appendChild(overlay);

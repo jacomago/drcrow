@@ -1,17 +1,7 @@
 ---
-layout: default
+layout: gallery
 title: GALLERY
+lead: Visual manifestations of the Forbidden Zone.
+image: assets/images/highlights/live-drummer-red.jpg
 permalink: /gallery.html
 ---
-
-# GALLERY
-
-Visual manifestations of the Forbidden Zone.
-
-<div class="gallery-grid">
-  {% for img in site.data.gallery %}
-  <div class="gallery-item">
-    <img src="{{ 'assets/images/' | append: img | relative_url }}" alt="Forbidden Zone Manifestation">
-  </div>
-  {% endfor %}
-</div>

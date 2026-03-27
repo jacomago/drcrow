@@ -1,0 +1,20 @@
+---
+layout: default
+---
+{% include page_hero.html title=page.title tagline=page.lead image=page.image %}
+
+<section class="contact-portals">
+  <div class="container">
+    <div class="portals-grid">
+      {% for social in site.data.socials %}
+        {% include portal_btn.html url=social.url name=social.name class=social.class %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="contact-direct bg-surface-low">
+  <div class="container">
+    {{ content }}
+  </div>
+</section>

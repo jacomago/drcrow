@@ -1,18 +1,10 @@
 ---
-layout: default
+layout: contact
 title: CONTACT
+lead: Step into the Forbidden Zone through these portals.
+image: assets/images/highlights/singer-noir-close.jpg
 permalink: /contact.html
 ---
-
-# CONTACT
-
-Step into the Forbidden Zone through these portals.
-
-<div class="portals-grid">
-  {% for social in site.data.socials %}
-    {% include portal_btn.html url=social.url name=social.name class=social.class %}
-  {% endfor %}
-</div>
 
 ### BOOKINGS & INQUIRIES
 
