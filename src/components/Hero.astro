@@ -27,7 +27,7 @@ const optimizedLogo = illustrations[logoPath];
   <div class="hero-overlay">
     <p class="hero-tagline">{tagline}</p>
     {optimizedLogo ? (
-      <Image src={optimizedLogo()} alt={title || ''} width={800} class="headline-logo" loading="eager" decoding="async" />
+      <Image src={optimizedLogo()} alt={title || ''} width={1200} class="headline-logo" loading="eager" decoding="async" />
     ) : (
       <img src="/illustrations/header.png" alt={title} class="headline-logo" loading="eager" decoding="async" />
     )}
