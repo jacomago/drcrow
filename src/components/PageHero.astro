@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+export interface Props {
+  title?: string;
+  tagline?: string;
+  image?: string;
+}
+const { title, tagline, image } = Astro.props;
+
+// Import all images from the assets directory
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif}');
+
+// Handle image path
+let optimizedImage;
+if (image) {
+  const normalizedPath = image.startsWith('/') ? image : `/${image}`;
+  const assetPath = normalizedPath.startsWith('/assets/images/') 
+    ? `/src${normalizedPath}` 
+    : normalizedPath;
+  optimizedImage = images[assetPath];
+}
+---
+<div class="page-hero">
+  <div class="hero-overlay">
+    <h1>{title}</h1>
+    {tagline && <p class="hero-tagline">{tagline}</p>}
+  </div>
+  {image && (
+    <div class="hero-image">
+      {optimizedImage ? (
+        <Image src={optimizedImage()} alt={title || ''} width={1920} height={1080} loading="lazy" decoding="async" />
+      ) : (
+        <img src={image} alt={title} loading="lazy" decoding="async" />
+      )}
+    </div>
+  )}
+</div>

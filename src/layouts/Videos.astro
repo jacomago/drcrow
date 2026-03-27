@@ -1,0 +1,24 @@
+---
+import Layout from './Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import VideoEmbed from '../components/VideoEmbed.astro';
+import videos from '../data/videos.json';
+const { frontmatter } = Astro.props;
+---
+<Layout title={frontmatter.title}>
+  <PageHero title={frontmatter.title} tagline={frontmatter.lead} image={frontmatter.image} />
+  <section class="videos-content bg-surface-low">
+    <div class="container">
+      <slot />
+      {videos.items.map((video: any) => (
+        <section class="video-feature">
+          <h2>{video.title}</h2>
+          <p>{video.description}</p>
+          {(video.youtube_id || video.facebook_url || video.wix_video_url) && (
+            <VideoEmbed youtube_id={video.youtube_id} facebook_url={video.facebook_url} wix_video_url={video.wix_video_url} />
+          )}
+        </section>
+      ))}
+    </div>
+  </section>
+</Layout>

@@ -1,9 +1,0 @@
-title: Dr Crow And The Forbidden Zone
-description: Official website for Dr Crow And The Forbidden Zone
-url: "https://www.drcrow.co.uk"
-
-# Build settings
-theme: minima # You can change this to any Jekyll theme later
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag

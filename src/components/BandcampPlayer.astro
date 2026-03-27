@@ -1,0 +1,118 @@
+---
+export interface Props {
+  album_id?: string;
+  track_id?: string;
+  title: string;
+  url: string;
+  
+  // Layout Options
+  size?: 'large' | 'small';
+  minimal?: boolean;      // Only for 'large' size: hides everything but artwork and big play button
+  tracklist?: boolean;    // Shows/hides the tracklist
+  artwork?: 'none' | 'small' | 'big';
+  
+  // Style Options
+  bgcol?: string;         // hex code without #
+  linkcol?: string;       // hex code without #
+  transparent?: boolean;
+  
+  // Custom Container Styles
+  maxWidth?: string;
+  className?: string;
+}
+
+const { 
+  album_id, 
+  track_id, 
+  title, 
+  url, 
+  size = 'large',
+  minimal = false,
+  tracklist = false,
+  artwork = 'big',
+  bgcol = '131313',
+  linkcol = 'e4b5ff',
+  transparent = true,
+  maxWidth,
+  className = ''
+} = Astro.props;
+
+/**
+ * Bandcamp Embed Logic:
+ * - Slim (42px): size=small, artwork=none
+ * - Standard Small (120px): size=small, artwork=small/big
+ * - Minimal Square (350px): size=large, minimal=true
+ * - Standard Big (470px+): size=large, minimal=false, tracklist=false/true
+ */
+
+let height = "120px";
+const effectiveMaxWidth = maxWidth || (size === 'large' ? "350px" : "100%");
+
+// Construct path parameters
+const params: string[] = [];
+params.push(`size=${size}`);
+params.push(`bgcol=${bgcol}`);
+params.push(`linkcol=${linkcol}`);
+params.push(`transparent=${transparent}`);
+params.push(`tracklist=${tracklist}`);
+params.push(`artwork=${artwork}`);
+
+if (minimal && size === 'large') {
+  params.push('minimal=true');
+  height = "350px";
+} else if (size === 'large') {
+  // Height calculation for standard big player
+  // Standard without tracklist is 470px. With tracklist it depends on number of tracks.
+  // Bandcamp default for full album with tracklist is often around 600-700px.
+  height = tracklist ? "621px" : "470px";
+} else if (size === 'small') {
+  height = artwork === 'none' ? "42px" : "120px";
+}
+
+const baseUrl = album_id 
+  ? `https://bandcamp.com/EmbeddedPlayer/album=${album_id}/`
+  : `https://bandcamp.com/EmbeddedPlayer/track=${track_id}/`;
+
+const src = `${baseUrl}${params.join('/')}/`;
+---
+
+<div 
+  class={`bandcamp-player-container ${className} ${size} ${minimal ? 'minimal' : ''}`} 
+  style={`max-width: ${effectiveMaxWidth};`}
+>
+  <iframe 
+    style={`border: 0; width: 100%; height: ${height};`} 
+    src={src} 
+    seamless 
+    loading="lazy"
+  >
+    <a href={url}>{title}</a>
+  </iframe>
+</div>
+
+<style>
+  .bandcamp-player-container {
+    position: relative;
+    background: var(--surface-container-lowest, #0e0e0e);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+    overflow: hidden;
+    margin: 20px 0;
+  }
+
+  /* No shadow for slim/small embeds unless specified */
+  .small {
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .bandcamp-player-container:not(.small):hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 60px 100px rgba(89, 0, 137, 0.15);
+  }
+
+  .large {
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>

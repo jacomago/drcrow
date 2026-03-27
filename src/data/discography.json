@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "id": "strohayr",
+      "type": "album",
+      "album_id": "66352487",
+      "title": "Strohayr by Dr Crow and The Forbidden Zone",
+      "url": "https://drcrow.bandcamp.com/album/strohayr",
+      "display_title": "STROHAYR",
+      "label": "LATEST MANIFESTATION",
+      "description": "The new album is presented in its entirety. A story in 10 parts, much like life itself. A journey through the sonic architecture of the Forbidden Zone."
+    },
+    {
+      "id": "bones",
+      "type": "album",
+      "album_id": "1201722343",
+      "title": "Fistful Of Broken Bones by Dr Crow and The Forbidden Zone",
+      "url": "https://drcrow.bandcamp.com/album/fistful-of-broken-bones",
+      "display_title": "A Fistful of Broken Bones",
+      "label": "FOUNDATIONAL RESONANCE",
+      "description": "A raw extraction of sound from the depths of the path less traveled."
+    },
+    {
+      "id": "kaleidoscope",
+      "type": "album",
+      "album_id": "2561717360",
+      "title": "Kaleidoscope by Dr Crow and The Forbidden Zone",
+      "url": "https://drcrow.bandcamp.com/album/kaleidoscope",
+      "display_title": "Kaleidoscope",
+      "label": "PSYCHEDELIC EXTRACTION",
+      "description": "A mix of 70s-style rock with psychedelic and gothic influences. Features 'Preacher' and 'Aura Girl'."
+    },
+    {
+      "id": "self-titled",
+      "type": "album",
+      "album_id": "2681302457",
+      "title": "Dr Crow by Dr Crow and The Forbidden Zone",
+      "url": "https://drcrow.bandcamp.com/album/dr-crow",
+      "display_title": "Dr Crow",
+      "label": "INITIAL MANIFESTATION",
+      "description": "The self-titled debut manifestation. Five tracks of uniquely crafted rock."
+    }
+  ]
+}

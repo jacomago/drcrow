@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets';
+export interface Props {
+  title?: string;
+  tagline?: string;
+  image?: string;
+  cta_link?: string;
+  cta_text?: string;
+}
+const { title, tagline = ". . . . stray from the path", image = "/assets/images/heroes/home-hero.jpg", cta_link, cta_text = "LISTEN NOW" } = Astro.props;
+
+// Import all images from the assets directory
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif}');
+const illustrations = import.meta.glob<{ default: ImageMetadata }>('/src/illustrations/**/*.{jpeg,jpg,png,gif,svg}');
+
+// Handle image path
+const normalizedPath = image.startsWith('/') ? image : `/${image}`;
+const assetPath = normalizedPath.startsWith('/assets/images/') 
+  ? `/src${normalizedPath}` 
+  : normalizedPath;
+const optimizedImage = images[assetPath];
+
+const logoPath = '/src/illustrations/header.png';
+const optimizedLogo = illustrations[logoPath];
+---
+<div class="hero-section">
+  <div class="hero-overlay">
+    <p class="hero-tagline">{tagline}</p>
+    {optimizedLogo ? (
+      <Image src={optimizedLogo()} alt={title || ''} width={800} class="headline-logo" loading="eager" decoding="async" />
+    ) : (
+      <img src="/illustrations/header.png" alt={title} class="headline-logo" loading="eager" decoding="async" />
+    )}
+    {cta_link && (
+      <>
+        <br />
+        <a href={cta_link} class="hero-cta">{cta_text}</a>
+      </>
+    )}
+  </div>
+  <div class="hero-image">
+    {optimizedImage ? (
+      <Image src={optimizedImage()} alt={title || ''} width={1920} height={1080} loading="eager" decoding="async" />
+    ) : (
+      <img src={image} alt={title} loading="eager" decoding="async" />
+    )}
+  </div>
+</div>

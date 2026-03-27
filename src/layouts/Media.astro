@@ -1,0 +1,214 @@
+---
+import Layout from './Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import BandcampPlayer from '../components/BandcampPlayer.astro';
+import PortalBtn from '../components/PortalBtn.astro';
+import discography from '../data/discography.json';
+import { Image, getImage } from 'astro:assets';
+const { frontmatter } = Astro.props;
+
+// Categorize discography
+const albums = discography.items.filter(i => i.type === 'album');
+
+// Import all images from the assets directory
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif}');
+
+// Handle Crow Hall image specifically
+const crowHallPath = '/src/assets/images/archive/crow-hall.jpg';
+const crowHallThumb = images[crowHallPath] ? images[crowHallPath]() : null;
+const crowHallZoom = images[crowHallPath] ? await getImage({ src: images[crowHallPath](), width: 1600 }) : null;
+---
+
+<Layout title={frontmatter.title}>
+  <PageHero title={frontmatter.title} tagline={frontmatter.lead} image={frontmatter.image} />
+
+  {albums.map((album, index) => (
+    <section class={`music-editorial ${index % 2 === 0 ? '' : 'bg-surface-low'}`}>
+      <div class="container">
+        <div class={`editorial-grid ${index % 2 !== 0 ? 'reverse' : ''}`}>
+          <div class="editorial-text">
+            <h2 class="label-metadata">{album.label}</h2>
+            <h1 class="display-title">{album.display_title}</h1>
+            <p class="body-narrative">
+              {album.description}
+            </p>
+          </div>
+          <div class={`editorial-media ${index % 2 === 0 ? 'overlap-right' : 'overlap-left'}`}>
+            <BandcampPlayer 
+              album_id={album.album_id} 
+              title={album.title} 
+              url={album.url} 
+              size="large"
+              tracklist={true}
+              maxWidth="400px"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- Crow Hall Insight: Tonal Layer Shift -->
+  <section class="music-editorial insight">
+    <div class="container">
+      <div class="editorial-grid reverse">
+        <div class="editorial-text">
+          <h2 class="label-metadata">REVELATIONS</h2>
+          <h3 class="headline-accent">Crow Hall Insight</h3>
+          <p class="body-narrative">
+            A special insight into the band's home environment... Crow Hall. 
+            Where the frequencies are distilled and the wolves gather.
+          </p>
+          <BandcampPlayer 
+            track_id="3830604073" 
+            title="Radio Interview by Dr Crow and The Forbidden Zone" 
+            url="https://drcrow.bandcamp.com/track/radio-interview" 
+            size="small"
+            artwork="none"
+          />
+        </div>
+        <div class="editorial-image offset-left">
+          {crowHallThumb ? (
+            <Image 
+              src={crowHallThumb} 
+              alt="Crow Hall" 
+              class="noir-art-frame"
+              width={1200}
+              height={800}
+              loading="lazy"
+              decoding="async"
+              data-zoom={crowHallZoom?.src}
+            />
+          ) : (
+            <img src="/assets/images/archive/crow-hall.jpg" alt="Crow Hall" class="noir-art-frame" />
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SoundCloud: The Archival Well -->
+  <section class="music-editorial bg-surface-lowest archive-well">
+    <div class="container text-center">
+      <h2 class="label-metadata">THE SOUNDCLOUD ARCHIVE</h2>
+      <p class="body-narrative centered">Further frequencies from the zone. Raw distilled energy from the vault.</p>
+      <div class="portals-grid glass-portal">
+        <PortalBtn url="https://soundcloud.com/user-20555187" name="VISIT SOUNDCLOUD" class="soundcloud" />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .music-editorial {
+    padding: 120px 0;
+    overflow: hidden;
+  }
+
+  .bg-surface-lowest {
+    background-color: var(--surface-container-lowest, #0e0e0e);
+  }
+
+  .editorial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .editorial-grid.reverse {
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .label-metadata {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+
+  .display-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 2rem;
+    line-height: 0.9;
+  }
+
+  .headline-accent {
+    font-size: 2.5rem;
+    color: var(--accent-purple);
+    margin-bottom: 1.5rem;
+  }
+
+  .body-narrative {
+    font-size: 1.1rem;
+    max-width: 500px;
+    line-height: 1.8;
+    color: var(--text-variant);
+    margin-bottom: 2.5rem;
+  }
+
+  .body-narrative.centered {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .overlap-right {
+    transform: translateX(40px);
+  }
+
+  .overlap-left {
+    transform: translateX(-40px);
+  }
+
+  .offset-left {
+    padding-right: 40px;
+  }
+
+  .offset-right {
+    padding-left: 40px;
+  }
+
+  .noir-art-frame {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+    filter: sepia(0.1) contrast(1.1) brightness(0.8);
+    transition: filter 0.8s ease;
+    cursor: zoom-in;
+  }
+
+  .noir-art-frame:hover {
+    filter: sepia(0) contrast(1) brightness(1);
+  }
+
+  .glass-portal {
+    max-width: 400px;
+    margin: 60px auto 0 auto !important;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 992px) {
+    .editorial-grid, .editorial-grid.reverse {
+      grid-template-columns: 1fr;
+      gap: 60px;
+      text-align: center;
+    }
+
+    .editorial-text {
+      order: 1;
+    }
+
+    .editorial-media, .editorial-image {
+      order: -1;
+      transform: none;
+      padding: 0;
+    }
+
+    .body-narrative {
+      max-width: 100%;
+    }
+  }
+</style>

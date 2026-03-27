@@ -1,0 +1,65 @@
+---
+import { Image, getImage } from 'astro:assets';
+import exposition from '../data/exposition.json';
+import { marked } from 'marked';
+
+// Import all images from the illustrations directory
+const illustrations = import.meta.glob<{ default: ImageMetadata }>('/src/illustrations/**/*.{jpeg,jpg,png,gif,svg}');
+
+// Pre-calculate optimized versions for zoom
+const itemsWithZoom = await Promise.all(
+  exposition.items.map(async (item: any) => {
+    const assetPath = `/src/${item.image?.replace(/^\//, '')}`;
+    const thumbImport = illustrations[assetPath];
+    if (!thumbImport) return { ...item, optimizedImage: null, zoomSrc: null };
+    
+    const thumb = thumbImport();
+    const zoom = await getImage({ src: thumb, width: 1600 });
+    return { ...item, optimizedImage: thumb, zoomSrc: zoom.src };
+  })
+);
+---
+{itemsWithZoom.map((item: any) => {
+  return (
+    <>
+      {item.type === "hero" && (
+        <div class="exposition-hero-img">
+          {item.optimizedImage ? (
+            <Image src={item.optimizedImage} alt={item.alt} width={1920} height={1080} loading="lazy" decoding="async" style="width: 100%; height: 60vh; object-fit: cover; filter: brightness(0.6);" />
+          ) : (
+            item.image && <img src={item.image.replace(/^\//, '')} alt={item.alt} loading="lazy" decoding="async" style="width: 100%; height: 60vh; object-fit: cover; filter: brightness(0.6);" />
+          )}
+        </div>
+      )}
+      {item.type === "row" && (
+        <div class="container">
+          <div class={`editorial-row ${item.reverse ? 'reverse' : ''}`}>
+            <div class="editorial-text" set:html={marked.parse(item.text || '')} />
+            <div class="editorial-image">
+              {item.optimizedImage ? (
+                <Image src={item.optimizedImage} alt={item.alt} width={800} height={600} loading="lazy" decoding="async" data-zoom={item.zoomSrc} />
+              ) : (
+                item.image && <img src={item.image.replace(/^\//, '')} alt={item.alt} loading="lazy" decoding="async" />
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+      {item.type === "quote" && (
+        <div class="container">
+          <blockquote class="pull-quote">
+            "{item.text}"
+          </blockquote>
+        </div>
+      )}
+      {item.type === "cta" && (
+        <div class="container">
+          <p class="cta text-center" style="font-size: 2rem;">
+            <span set:html={marked.parseInline(item.text || '')} /><br />
+            <span style="color: var(--accent-gold);">{item.subtext}</span>
+          </p>
+        </div>
+      )}
+    </>
+  );
+})}
